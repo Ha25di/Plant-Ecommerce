@@ -24,7 +24,7 @@
 }
 
 .intro11-slider-wrap .swiper-button-prev i:hover, .intro11-slider-wrap .swiper-button-next i:hover {
-  color: #E72463;
+  color: white;
 }
 
 .intro11-slider-wrap .swiper-button-prev {
@@ -45,8 +45,8 @@
 }
 
 .intro11-slider-wrap .swiper-pagination-bullet.swiper-pagination-bullet-active {
-  background: #E72463;
-  border-color: #E72463;
+  background:black;
+  border-color: black;
 }
 
 .intro11-slider-wrap .swiper-pagination-bullet:hover {
@@ -121,7 +121,7 @@
 .intro11-slider .intro11-content .title-slider {
   color: #ffffff;
   padding: 5px 10px;
-  background: #E72463;
+  background: black;
   font-size: 14px;
   display: inline-block;
   margin-bottom: 15px;
@@ -144,6 +144,8 @@
     line-height: 40px;
   }
 }
+
+
 
 @media (max-width: 767px) {
   .intro11-slider .intro11-content .title {
@@ -553,7 +555,7 @@
 }
 
 .flosun-button.primary-btn {
-  background-color: #E72463;
+  background-color: black;
   color: #ffffff;
 }
 
@@ -576,7 +578,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background: #E72463;
+  background:black;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -588,7 +590,7 @@
 
 .flosun-button.secondary-btn.theme-color {
   position: relative;
-  background: #E72463;
+  background:black;
   color: #ffffff;
   z-index: 1;
 }
@@ -605,7 +607,7 @@
 }
 
 .flosun-button.secondary-btn.secondary-border:hover {
-  background: #E72463;
+  background:black;
   color: #ffffff;
   border-color: #E72463;
 }
