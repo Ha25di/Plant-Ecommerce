@@ -15,7 +15,7 @@
         right: -300px;
         height: 100vh;
         width: 300px;
-        background-color: #E3E6F3;
+        background-color: #D6F6D5;
         box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
         padding: 80px 0 0 10px;
         transition: 0.3s;
@@ -35,6 +35,20 @@
     #bag-og{
         display: none;
     }
+
+    #search-og{
+        display: none;
+    }
+
+    #user-og{
+        display: none;
+    }
+
+    #mobile-search-input{
+        display: none;
+    }
+
+
     .close-icon{
         display: initial;
     }
@@ -133,4 +147,30 @@
         align-items: flex-start;
     }
 
+}
+
+@media only screen 
+  and (min-width: 800px) 
+  and (max-width: 1180px) {
+    #icon{
+        max-height: 60px;
+        max-width: 100%;
+    }
+    #blog{
+        display: none;
+    }
+    #contact{
+        display: none;
+    }
+}
+  
+
+@media only screen 
+  and (min-width: 280px) 
+  and (max-width: 653px) {
+    #icon{
+        max-height: 30px;
+        max-width: 80%;
+    }
+ 
 }
