@@ -41,21 +41,33 @@
 <body>
     
     <section id="header">
-        <a href="index.html"><h3> Zaatar</h3></a>
+        <a href="index.html"><img id = "icon" src="img/icons/zaatar.png"> </a>
         <div>
             <ul id="navbar">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a></li>
+                <li id = "blog"><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id = "contact"><a href="contact.html">Contact</a></li>
+                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+               <!-- Hidden search box -->
+               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+
+               <li id="user-og"><a href = "cart.html"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+
+            <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
+
+                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a></li>
                 <img id="close" class="close-icon" src="img/icons/x.png">
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a>
-            <img id="bar" class="menu-icon" src="img/icons/bars.png">
+            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+
+            <a href = "cart.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a>
+            <img id="bar" class="menu-icon" src="img/icons/menu.png">
         </div>
     </section>
     <!-- <section id="hero">
@@ -70,7 +82,7 @@
  <div class="intro11-slider-wrap section">
     <div class="intro11-slider swiper-container">
         <div class="swiper-wrapper">
-            <div class="intro11-section swiper-slide slide-1 slide-bg-1 bg-position">
+            <div class="intro11-section swiper-slide slide-2 slide-bg-1 bg-position">
                 <!-- Intro Content Start -->
                 <div class="intro11-content text-left">
                     <h3 class="title-slider text-uppercase">Top Trend</h3>
@@ -80,7 +92,7 @@
                 </div>
                 <!-- Intro Content End -->
             </div>
-            <div class="intro11-section swiper-slide slide-2 slide-bg-1 bg-position">
+            <div class="intro11-section swiper-slide slide-3 slide-bg-1 bg-position">
                 <!-- Intro Content Start -->
                 <div class="intro11-content text-left">
                     <h3 class="title-slider black-slider-title text-uppercase">Collection</h3>
@@ -90,7 +102,7 @@
                 <!-- Intro Content End -->
             </div>
 
-            <div class="intro11-section swiper-slide slide-3 slide-bg-1 bg-position">
+            <div class="intro11-section swiper-slide slide-1 slide-bg-1 bg-position">
                 <!-- Intro Content Start -->
                 <div class="intro11-content text-left">
                     <h3 class="title-slider black-slider-title text-uppercase">Collection</h3>
@@ -448,6 +460,7 @@
             <button class="normal">Sign Up</button>
         </div>
     </section>
+    <!-- Footer -->
     <footer class="section-p1">
         <div class="col">
             <img class="logo" src="img/logo.png" alt="">

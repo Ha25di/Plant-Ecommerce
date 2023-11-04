@@ -21,6 +21,11 @@
 #header a {
     text-decoration: none;
 }
+
+#icon{
+    max-height: 60px;
+    max-width: 100%;
+}
  /*  */
 
 
@@ -57,7 +62,8 @@
     left: 20px;
 }
 .bag-icon{
-    width: 20px;
+    width: 22px;
+    
 }
 .close-icon{
     display: none;
@@ -75,6 +81,50 @@
     width: 22px;
     margin-left: 20px;
     cursor: pointer;
+    color: black;
 }
 
 
+/********************************** for search click handler ******************************************/
+#search-input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000; /* Creates the line */
+    outline: none;
+    width: 20%; /* Adjust width as needed */
+    margin-top: 0px; /* Space above the search line */
+  }
+  
+  /* Hide the placeholder when the input is focused and not filled */
+  #search-input:focus:not(:placeholder-shown) {
+    placeholder: none;
+  }
+  
+  /* Optional: Add some transition effect */
+  #search-input {
+    transition: all 0.3s ease-in-out;
+  }
+  
+
+  #mobile-search-input {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #000; /* Creates the line */
+    outline: none;
+    width: 100%; /* Adjust width as needed */
+    margin-top: 0px; /* Space above the search line */
+    margin-right: 1ex;
+    margin-left: 0;
+  }
+  
+  /* Hide the placeholder when the input is focused and not filled */
+  #mobile-search-input:focus:not(:placeholder-shown) {
+    placeholder: none;
+  }
+  
+  /* Optional: Add some transition effect */
+  #mobile-search-input {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /************************* End search click handler *****************************/
