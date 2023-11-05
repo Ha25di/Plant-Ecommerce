@@ -120,6 +120,7 @@ function updateCartTotal() {
 
   // Update the 'td' with the id 'cartTotal' with the calculated total
   document.getElementById('cartTotal').textContent = formattedTotal;
+  document.getElementById('Total').textContent = formattedTotal;
 }
 
 // When the page loads
@@ -131,6 +132,40 @@ function onCartItemChange() {
   
   // Then update the total
   updateCartTotal();
+}
+/******************************* ************************* ****************************** */
+
+
+
+
+/******************************* Applying Coupon ****************************** */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Handler for the Apply Coupon button click
+  document.getElementById('CouponBtn').addEventListener('click', applyCoupon);
+});
+
+function applyCoupon() {
+  const couponInput = document.getElementById('CouponInput').value.toLowerCase(); // Get the coupon code and convert to lower case
+  const cartTotalElement = document.getElementById('cartTotal');
+  const totalElement = document.getElementById('Total');
+
+  let cartTotal = parseFloat(cartTotalElement.textContent.replace('$', '')); // Assuming the cart total is in this format: $335
+  let discount = 0;
+
+  // Define the valid coupons
+  const validCoupons = ['hadi', 'jana'];
+
+  // Check if the entered coupon is valid
+  if (validCoupons.includes(couponInput)) {
+    discount = cartTotal * 0.20; // 20% discount
+  }
+
+  // Calculate the total after applying discount
+  let total = cartTotal - discount;
+  
+  // Update the total element
+  totalElement.textContent = `$ ${total.toFixed(2)}`;
 }
 /******************************* ************************* ****************************** */
 
