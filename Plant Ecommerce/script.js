@@ -44,6 +44,7 @@ function addToCart(productID) {
 
 
 // Attach the click event listener to each cart icon
+
 document.querySelectorAll('.pro').forEach((productElement, index) => {
   const cartIconContainer = productElement.querySelector('.cart-icon-container');
   cartIconContainer.addEventListener('click', function(event) {
