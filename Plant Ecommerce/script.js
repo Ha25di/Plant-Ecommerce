@@ -73,6 +73,7 @@ function removeFromCart(index) {
   cart.splice(index, 1); // Remove the item at the specified index
   localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
   renderCart(); // Re-render the cart
+  updateCartTotal();
 }
 
 /******************************* End Remove from Cart ****************************** */
@@ -87,6 +88,7 @@ function updateQuantity(index, quantity) {
   cart[index].quantity = quantity; // Update the quantity
   localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
   renderCart(); // Re-render the cart to update the subtotal
+  updateCartTotal();
 }
 
 
