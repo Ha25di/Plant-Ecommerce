@@ -24,9 +24,24 @@ function addToCart(productID) {
   // Add the product to the cart array
   cart.push(product);
 
+  Swal.fire({
+    position: 'center', // Position it in the center
+    icon: 'success',
+    title: 'Added to Cart',
+    showConfirmButton: false,
+    timer: 1500,
+    width: '400px', // Set a smaller width
+    // Optionally, you can use customClass to define your own styles in CSS
+    customClass: {
+      popup: 'my-swal' // This is a class you can define in your CSS file
+    }
+  });
+  
   // Save the updated cart back to localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+
 
 // Attach the click event listener to each cart icon
 document.querySelectorAll('.pro').forEach((productElement, index) => {
