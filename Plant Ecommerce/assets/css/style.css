@@ -50,8 +50,8 @@
 }
 
 .intro11-slider-wrap .swiper-pagination-bullet:hover {
-  background: #E72463;
-  border-color: #E72463;
+  background: green;
+  border-color: green;
 }
 
 @media (max-width: 991px) {
@@ -254,7 +254,7 @@
   font-size: 190px;
   font-family: "Great Vibes", cursive;
   line-height: 150px;
-  color: #E72463;
+  color: green;
   margin-bottom: 20px;
 }
 
@@ -413,32 +413,32 @@
 
 .slide-1 {
   background-image: url("../images/slider/img3.jpg");
-  background-color: rgba(215, 177, 190, 0.9);
+  background-color: green;
 }
 
 .slide-2 {
   background-image: url("../images/slider/img1.jpg");
-  background-color: rgba(215, 177, 190, 0.9);
+  background-color: green;
 }
 
 .slide-3 {
   background-image: url("../images/slider/img2.jpg");
-  background-color: rgba(215, 177, 190, 0.9);
+  background-color: green;
 }
 
 .slide-4 {
   background-image: url("../images/slider/2-2.jpg");
-  background-color: rgba(215, 177, 190, 0.9);
+  background-color: green;
 }
 
 .slide-5 {
   background-image: url("../images/slider/3-1.jpg");
-  background-color: rgba(54, 36, 42, 0.9);
+  background-color: green;
 }
 
 .slide-6 {
   background-image: url("../images/slider/3-2.jpg");
-  background-color: rgba(54, 36, 42, 0.9);
+  background-color: green;
 }
 
 /*-- Slider Animation --*/
@@ -609,7 +609,7 @@
 .flosun-button.secondary-btn.secondary-border:hover {
   background:black;
   color: #ffffff;
-  border-color: #E72463;
+  border-color: green;
 }
 
 @media (max-width: 575px) {
@@ -630,8 +630,8 @@
 }
 
 .flosun-button.white-btn:hover {
-  background-color: #E72463;
-  border-color: #E72463;
+  background-color: green;
+  border-color: green;
   color: #ffffff;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -645,8 +645,8 @@
 }
 
 .flosun-button.black-btn:hover {
-  background-color: #E72463;
-  border-color: #E72463;
+  background-color: green;
+  border-color: green;
   color: #ffffff;
   -webkit-transition: .3s;
   -o-transition: .3s;
@@ -694,7 +694,7 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #E72463;
+  background: green;
   color: #ffffff;
   z-index: 1;
 }

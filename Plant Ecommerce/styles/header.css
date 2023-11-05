@@ -26,6 +26,14 @@
     max-height: 60px;
     max-width: 100%;
 }
+
+#search-og{
+    cursor: pointer;
+}
+
+#mobile-search-og{
+    cursor: pointer;
+}
  /*  */
 
 
@@ -85,7 +93,3 @@
 }
 
 
-#icon{
-    max-height: 60px;
-    max-width: 100%;
-}

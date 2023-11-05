@@ -29,14 +29,15 @@
     font-weight: 800;
 }
 #sm-banner span{
-    color: #ffffff;
+    color: #ffff;
     font-size: 14px;
     font-weight: 500;
     padding-bottom: 15px;
+    text-shadow: 5px 5px 5px green;
 }
 #sm-banner .banner-box:hover button{
-    background-color: #088178;
-    border: 1px solid #088178;
+    background-color: rgb(3, 53, 3);;
+    border: 1px solid rgb(3, 53, 3);;
 }
 #banner3{
     display: flex;
