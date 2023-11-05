@@ -22,7 +22,15 @@ function addToCart(productID) {
   };
 
   // Add the product to the cart array
-  cart.push(product);
+  let productIndex = cart.findIndex((p) => p.id === productID);
+  if (productIndex > -1) {
+    // Product exists, increment the quantity
+    cart[productIndex].quantity += 1;
+  } else {
+    // Add the new product to the cart
+    cart.push(product);
+  }
+  //cart.push(product);
 
   Swal.fire({
     position: 'center', // Position it in the center
@@ -41,20 +49,15 @@ function addToCart(productID) {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-
-
 // Attach the click event listener to each cart icon
-
 document.querySelectorAll('.pro').forEach((productElement, index) => {
   const cartIconContainer = productElement.querySelector('.cart-icon-container');
   cartIconContainer.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent the anchor default click behavior
-      const productID = `plant${index + 1}`; // Construct the product ID
-      addToCart(productID);
+    event.preventDefault(); // Prevent the anchor default click behavior
+    const productID = productElement.id; // Use the ID already assigned to the product element
+    addToCart(productID);
   });
 });
-
-
 
 // This function will render the cart items on the cart page
 function renderCart() {
@@ -94,6 +97,7 @@ function removeFromCart(index) {
 
 /******************************* End Remove from Cart ****************************** */
 
+
 /******************************* Update Quantity in Cart ****************************** */
 function updateQuantity(index, quantity) {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -107,10 +111,8 @@ function updateQuantity(index, quantity) {
   updateCartTotal();
 }
 
-
 // Call the renderCart function to populate the cart when the page is loaded
 document.addEventListener('DOMContentLoaded', renderCart);
-
 
 
 
@@ -184,12 +186,6 @@ function applyCoupon() {
   totalElement.textContent = `$ ${total.toFixed(2)}`;
 }
 /******************************* ************************* ****************************** */
-
-
-
-
-
-
 
 const bar = document.getElementById('bar');
 const nav = document.getElementById('navbar');
