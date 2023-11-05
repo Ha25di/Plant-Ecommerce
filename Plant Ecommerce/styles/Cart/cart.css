@@ -112,3 +112,25 @@
         padding: 20px;
     }
 }
+
+/******************* Added ****************************/
+
+input[type='number']:focus {
+    border: 2px solid #033a03; /* Green border for focus */
+    outline: none;
+}
+
+/* For Webkit browsers like Chrome/Safari */
+#cart table td:nth-child(5) input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    opacity: 1 !important;
+}
+
+
+#cart table td:nth-child(5) input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: inner-spin-button !important;
+    opacity: 1 !important;
+}
+/* *********************** */

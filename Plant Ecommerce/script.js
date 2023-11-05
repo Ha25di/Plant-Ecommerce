@@ -1,87 +1,141 @@
 
 /******************************* Start add to Cart ****************************** */
-// document.addEventListener('DOMContentLoaded', function() {
- 
-//   // Find all the cart icons and set up click event listeners
+
+// This function will be called when a cart icon is clicked
+function addToCart(productID) {
+  // Retrieve existing cart from localStorage
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Find the product element
+  const productElement = document.getElementById(productID);
+  const imgSrc = productElement.querySelector('.producto').src;
+  const productName = productElement.querySelector('.des h5').textContent;
+  const price = productElement.querySelector('.des h4').textContent;
+
+  // Create a product object
+  const product = {
+      id: productID,
+      image: imgSrc,
+      name: productName,
+      price: price.replace(/^\$/, ''), // Removing the dollar sign if present
+      quantity: 1 // Default quantity is 1
+  };
+
+  // Add the product to the cart array
+  cart.push(product);
+
+  // Save the updated cart back to localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+// Attach the click event listener to each cart icon
+document.querySelectorAll('.pro').forEach((productElement, index) => {
+  const cartIconContainer = productElement.querySelector('.cart-icon-container');
+  cartIconContainer.addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent the anchor default click behavior
+      const productID = `plant${index + 1}`; // Construct the product ID
+      addToCart(productID);
+  });
+});
+
+
+
+// This function will render the cart items on the cart page
+function renderCart() {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cartBody = document.getElementById('cart-body');
   
-//   var cartIcons = document.querySelectorAll('.cart-icon-container a');
-//   cartIcons.forEach(function(icon) {
-//       icon.addEventListener('click', function(event) {
-//           event.preventDefault(); // Prevent the default anchor behavior
+  // Clear the cart body
+  cartBody.innerHTML = '';
 
-//           // Get product details from the closest product container
-          
-//           var product = icon.closest('.pro');
-//           var imageSrc = product.querySelector('.producto').src;
-//           var productName = product.querySelector('.des h5').textContent;
-
-          
-//           var price = product.querySelector('.des h4').textContent;
-         
-//           // Create a new row for the cart
-//           var cartRow = createCartRow(imageSrc, productName, price);
-
-//           console.log('Cart row created', cartRow);
-          
-//           // Append the new row to the cart table
-//           var cartBody = document.getElementById('cart-body');
-
-//          console.log('CartBody', cartBody);
-
-//           cartBody.appendChild(cartRow);
-          
-        
-          
-//       });
-//   });
-// });
-
-// function createCartRow(imageSrc, productName, price) {
-//   // Create the row and cells
-
-//   var tr = document.createElement('tr');
-//   var tdImage = document.createElement('td');
-//   var tdProduct = document.createElement('td');
-//   var tdPrice = document.createElement('td');
-//   var tdQuantity = document.createElement('td');
-//   var tdSubtotal = document.createElement('td');
-//   var tdRemove = document.createElement('td');
-  
-//   // Set the content of each cell
-//   tdImage.innerHTML = `<img src="${imageSrc}" style="width: 50px; height: auto;">`;
-//   tdProduct.textContent = productName;
-//   tdPrice.textContent = price;
-//   tdQuantity.innerHTML = `<input type="number" value="1" min="1" style="width: 50px;">`;
-//   tdSubtotal.textContent = price; // For now, subtotal is the same as price
-//   tdRemove.innerHTML = `<a href="#"><img class="close-icon-cart" src="img/icons/x.png"></a>`;
- 
-//   // Append cells to the row
-//   tr.appendChild(tdRemove);
-//   tr.appendChild(tdImage);
-//   tr.appendChild(tdProduct);
-//   tr.appendChild(tdPrice);
-//   tr.appendChild(tdQuantity);
-//   tr.appendChild(tdSubtotal);
-  
-//   return tr;
-
-// }
+  // Loop over the items in the cart and append them to the table
+  cart.forEach((product, index) => {
+      const cartRowHTML = `
+          <tr>
+              <td><a href="#" onclick="removeFromCart(${index}); return false;"><img class="close-icon-cart" src="img/icons/x.png"></a></td>
+              <td><img src="${product.image}"></td>
+              <td>${product.name}</td>
+              <td>$${product.price}</td>
+              <td><input type="number" value="${product.quantity}" min="1" max="5" onchange="updateQuantity(${index}, this.value)"></td>
+              <td>$${(parseFloat(product.price) * product.quantity).toFixed(2)}</td>
+          </tr>
+      `;
+      cartBody.innerHTML += cartRowHTML;
+  });
+}
 /******************************* End add to Cart ****************************** */
 
-
 /******************************* Start Remove from Cart ****************************** */
-// document.addEventListener('DOMContentLoaded', function() {
-//   var cartBody = document.getElementById('cart-body');
-//   cartBody.addEventListener('click', function(event) {
-//     if (event.target.classList.contains('close')) {
-//       event.preventDefault();
-//       var tr = event.target.closest('tr');
-//       tr.remove();
-//     }
-//   });
-// });
+
+// This function will remove an item from the cart
+function removeFromCart(index) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.splice(index, 1); // Remove the item at the specified index
+  localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  renderCart(); // Re-render the cart
+}
 
 /******************************* End Remove from Cart ****************************** */
+
+/******************************* Update Quantity in Cart ****************************** */
+function updateQuantity(index, quantity) {
+  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Ensure the quantity is within the min and max values
+  quantity = Math.max(1, Math.min(quantity, 5));
+  
+  cart[index].quantity = quantity; // Update the quantity
+  localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  renderCart(); // Re-render the cart to update the subtotal
+}
+
+
+// Call the renderCart function to populate the cart when the page is loaded
+document.addEventListener('DOMContentLoaded', renderCart);
+
+
+
+
+/******************************* Update Total in Cart ****************************** */
+
+function updateCartTotal() {
+  // Get all the 'tr' elements in the 'tbody' of the cart
+  var cartItems = document.querySelectorAll('#cart-body tr');
+  var total = 0;
+
+  // Loop through each 'tr' to calculate the total price
+  cartItems.forEach(function(item) {
+    // Find the 'td' with the subtotal, which is assumed to be the last 'td' in the row
+    var subtotalElement = item.querySelector('td:last-child');
+    // Get the text content of the 'td', remove the dollar sign, and convert it to a float
+    var subtotal = parseFloat(subtotalElement.textContent.replace('$', ''));
+    // Add the subtotal to the total
+    total += subtotal;
+  });
+
+  // Format the total to two decimal places and prepend with a dollar sign
+  var formattedTotal = '$' + total.toFixed(2);
+
+  // Update the 'td' with the id 'cartTotal' with the calculated total
+  document.getElementById('cartTotal').textContent = formattedTotal;
+}
+
+// When the page loads
+document.addEventListener('DOMContentLoaded', updateCartTotal);
+
+// And after you handle an item being added, removed, or its quantity updated
+function onCartItemChange() {
+  // ... your code to handle the cart item change ...
+  
+  // Then update the total
+  updateCartTotal();
+}
+/******************************* ************************* ****************************** */
+
+
+
+
+
 
 
 const bar = document.getElementById('bar');
