@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beker06 Ecommerce | About</title>
+    <title>Zaatar | About</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/hero.css">
@@ -16,81 +16,72 @@
     <link rel="stylesheet" href="styles/About/about.css">
     <link rel="stylesheet" href="styles/features.css">
 
-</head>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="assets/css/vendor/font.awesome.min.css">
+    <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+</head>
 <body>
-    <section id="header">
-        <a href="index.html"><img src="img/logo.png" class="logo"></a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html" class="active">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a></li>
-                <img id="close" class="close-icon" src="img/icons/x.png">
-            </ul>
-        </div>
-        <div id="mobile">
-            <a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a>
-            <img id="bar" class="menu-icon" src="img/icons/bars.png">
-        </div>
-    </section>
+<section id="header">
+   <a href="index.html"><img id = "icon" src="img/icons/zaatar.png"> </a>
+   <div>
+       
+       <ul id="navbar">
+           <li><a href="index.html">Home</a></li>
+           <li><a href="shop.html" >Shop</a></li>
+           <li id = "blogNav"><a href="blog.html">Blog</a></li>
+           <li><a href="about.html" class="active">About</a></li>
+           <li id = "contact"><a href="contact.html">Contact</a></li>
+           <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+          <!-- Hidden search box -->
+          <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+
+          <li id="user-og"><a href = "cart.html"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+
+       <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
+
+           <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a></li>
+           <img id="close" class="close-icon" src="img/icons/x.png">
+       </ul>
+   </div>
+   <div id="mobile">
+       <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+       <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+
+       <a href = "cart.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+       <a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a>
+       <img id="bar" class="menu-icon" src="img/icons/menu.png">
+   </div>
+</section>
     <section id="page-header" class="about-header">
         <h2>#KnowUs</h2>
-        <p>Read all case studies about about our products</p>
+        <p>Get to know us and our plants</p>
     </section>
     <section id="about-head" class="section-p1">
-        <img src="img/about/a6.jpg">
-        <div>
-            <h2>Who We Are?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipiscing elit lacus aenean taciti, ante habitasse erat sapien
-                semper blandit tincidunt at eu etiam eget, nostra cras quisque sollicitudin class nascetur fermentum
-                tortor nunc. Aliquam primis vitae commodo pharetra tellus mi habitant dapibus consequat, rhoncus magnis
-                tempus posuere aliquet praesent turpis sollicitudin hac erat, pulvinar urna placerat neque sagittis
-                sodales curae porttitor. Senectus erat integer luctus libero sapien placerat arcu at dui tristique
-                bibendum, hendrerit nascetur gravida volutpat neque risus penatibus lacus non diam.
+       <div><img src="img/about/a7.jpg"></div> 
+        <div id = "aboutp">
+            <h2>Who Are We?</h2>
+            <p>At Zaatar, we unite Lebanon's ancient love for nature with modern convenience. Founded in 2023, 
+                our family-run venture aims to nurture a greener future by making plant care and gardening accessible to everyone.
+                From the Cedars to the Bekaa Valley, our country's rich landscapes inspire our curated selection of 
+                plants and the knowledge we share.
+             </p>
+            <p>We believe that every plant we bring into our homes enriches our lives,
+               serving as a testament to the beauty and versatility of Lebanese flora. 
+               Our website is more than a plant shop—it's a place to learn, to grow, 
+               and to contribute to a sustainable world. Embrace the joy of planting with us, 
+               and let's cultivate well-being and beauty, one plant at a time.
             </p>
-            <abbr title="">Create stuuning images with as much or as little control as you 
-            like thanks to a choice of Basic and Creative modes.</abbr>
+           
             <br><br>
-            <marquee bgcolor="#ccc" loop="-1" scrollamount="5" width="100%">Create stuuning images with as much or as little control as you 
-            like thanks to a choice of Basic and Creative modes.</marquee>
+            
         </div>
     </section>
-    <section id="about-app" class="section-p1">
-        <h1>Download Our <a href="#">App</a></h1>
-        <div class="video">
-            <video autoplay muted loop src="img/about/1.mp4"></video>
-        </div>
-    </section>
-    <section id="feature" class="section-p1">
-        <div class="fe-box">
-            <img src="img/features/f1.png">
-            <h6>Free Shipping</h6>
-        </div>
-        <div class="fe-box">
-            <img src="img/features/f2.png">
-            <h6>Online</h6>
-        </div>
-        <div class="fe-box">
-            <img src="img/features/f3.png">
-            <h6>Save Money</h6>
-        </div>
-        <div class="fe-box">
-            <img src="img/features/f4.png">
-            <h6>Promotions</h6>
-        </div>
-        <div class="fe-box">
-            <img src="img/features/f5.png">
-            <h6>Happy Sell</h6>
-        </div>
-        <div class="fe-box">
-            <img src="img/features/f6.png">
-            <h6>F24/7 Support</h6>
-        </div>
-    </section>
+    
+    
     <section id="newsletter" class="section-p1">
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -101,26 +92,26 @@
             <button class="normal">Sign Up</button>
         </div>
     </section>
+    <!-- Footer -->
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="img/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
-            <p><strong>Phone:</strong> +01 222 365 //(+91) 01 2345 6789</p>
+            <h4><b>Contact</b></h4>
+            <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
+            <p><strong>Phone:</strong> +(961) 70 222 365 </p>
             <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
             <div class="follow">
-                <h4>Follow Us</h4>
+                <h4><strong> Follow Us</strong></h4>
                 <div class="icon">
-                    <img class="footer-icon" src="img/icons/facebook.png">
-                    <img class="footer-icon" src="img/icons/twitter.png">
-                    <img class="footer-icon" src="img/icons/instagram.png">
-                    <img class="footer-icon" src="img/icons/youtube.png">
-                    <img class="footer-icon" src="img/icons/pinterest.png">
+                    <a href = "https://www.facebook.com/"> <img class="footer-icon" src="img/icons/facebook.png"> </a>
+                    <a href = "https://www.Twitter.com/"><img class="footer-icon" src="img/icons/twitter.png"></a>
+                    <a href = "https://www.instagram.com/"><img class="footer-icon" src="img/icons/instagram.png"></a>
+                    <a href = "https://www.youtube.com/"><img class="footer-icon" src="img/icons/youtube.png"></a>
+                    <a href = "https://www.pinterest.com/"><img class="footer-icon" src="img/icons/pinterest.png"></a>
                 </div>
             </div>
         </div>
         <div class="col">
-            <h4>About</h4>
+            <h4><b>About</b></h4>
             <a href="#">About Us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
@@ -128,13 +119,14 @@
             <a href="#">Contact Us</a>
         </div>
         <div class="col">
-            <h4>My Account</h4>
+            <h4><b>My Account</b></h4>
             <a href="#">Sign In</a>
             <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
+            <a href="#">Shop</a>
+            <a href="#">Detect My Plant Disease</a>
+            <a href="#">Detect Plants For Soil Type</a>
         </div>
+        <!--
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
@@ -144,9 +136,9 @@
             </div>
             <p>Secure Payment Gateways</p>
             <img src="img/pay/pay.png">
-        </div>
+        </div>-->
         <div class="copyright">
-            <p>2022, Beker06 - HTML CSS Ecommerce Template</p>
+            <p>2023, Zaatar Plant Store</p>
         </div>
     </footer>
     <script src="script.js"></script>
