@@ -1,3 +1,61 @@
+const bar = document.getElementById('bar');
+const nav = document.getElementById('navbar');
+const close = document.getElementById('close');
+
+if (bar){
+    bar.addEventListener('click', () => {
+        nav.classList.add('active');
+    })
+}
+
+if (close){
+    close.addEventListener('click', () => {
+        nav.classList.remove('active');
+    })
+}
+
+/******************************* Start For search icon click ****************************** */
+
+// Get the search icon and input element
+document.addEventListener('DOMContentLoaded', function () {
+var searchIcon = document.getElementById('search-og');
+var searchInput = document.getElementById('search-input');
+
+// Add click event listener to the search icon
+searchIcon.addEventListener('click', function() {
+  // Toggle the display of the search input
+  if (searchInput.style.display === 'none' || searchInput.style.display === '') {
+    searchInput.style.display = 'block';
+    searchInput.focus(); // Focus the input field after displaying it
+  } else {
+    searchInput.style.display = 'none';
+  }
+});
+
+var MsearchIcon = document.getElementById('mobile-search-og');
+var MsearchInput = document.getElementById('mobile-search-input');
+
+// Add click event listener to the search icon
+MsearchIcon.addEventListener('click', function() {
+  // Toggle the display of the search input
+  if (MsearchInput.style.display === 'none' || MsearchInput.style.display === '') {
+    MsearchInput.style.display = 'block';
+    MsearchInput.focus(); // Focus the input field after displaying it
+  } else {
+    MsearchInput.style.display = 'none';
+  }
+});
+});
+/******************************* End For search icon click ****************************** */
+
+
+
+
+
+
+
+
+
 
 /******************************* Start add to Cart ****************************** */
 
@@ -117,11 +175,15 @@ function handleProductClick(productId) {
     const current_product = { imgSrc, productName, price};
     localStorage.setItem('current_product', JSON.stringify(current_product));
 
-    const details= "Plant Product";
+    const details= "The African Violet is a petite and charming houseplant "
+    + "known for its velvety leaves and dainty, colorful flowers. Native to East Africa, "+
+    "it thrives in small spaces with bright, indirect light. With proper care, it adds a touch of "+
+    "elegance to indoor settings, blooming in shades of purple, pink, white, and blue year-round.";
   
     // Save the product details to localStorage
     const productDetails = { imgSrc, productName, price,details};
     localStorage.setItem('currentProduct', JSON.stringify(productDetails));
+  
     // Redirect to the sproduct.html page
     window.location.href = 'sproduct.html';
 }
@@ -143,9 +205,8 @@ function initProductListeners() {
 }
 
 // Call the function to initialize listeners when the DOM content is loaded
-document.addEventListener('DOMContentLoaded', (event) => {
-    initProductListeners();
-});
+document.addEventListener('DOMContentLoaded', initProductListeners);
+
 
 // Function to update the product details on the sproduct.html page
 function updateProductDetails() {
@@ -159,11 +220,11 @@ function updateProductDetails() {
     // Update the product details in the sproduct.html page
     const imgElement = document.querySelector('.single-pro-image img');
     const titleElement = document.querySelector('.single-pro-details h4');
-    const priceElement = document.querySelector('.single-pro-details h2');
+    const priceElement = document.querySelector('.single-pro-details h3');
     const detailsElement = document.querySelector('.single-pro-details span');
 
     imgElement.src = productDetails.imgSrc;
-    titleElement.textContent = productDetails.title;
+    titleElement.textContent = productDetails.productName;
     priceElement.textContent = productDetails.price;
     detailsElement.textContent = productDetails.details;
 
@@ -190,3 +251,5 @@ document.getElementById('detailAdd').addEventListener('click', function() {
     }
   });
   /****************************** End For Details of a Product ********************************/
+
+

@@ -6,6 +6,7 @@
     justify-content: space-between;
     padding-top: 20px;
     flex-wrap: wrap;
+    /* border: 2px solid blue; */
 }
 #product1 .pro{
     width: 23%;

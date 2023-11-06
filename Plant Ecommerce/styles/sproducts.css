@@ -1,3 +1,29 @@
+/*          added*        */
+.background{
+     margin-top:0px !important;
+     background-color: rgb(202, 240, 193);
+     flex-wrap: wrap;
+    
+}
+.productName{
+    font-size: 40px !important;
+    color: #024a1c;
+}
+
+.leftArrow{
+    background-color: rgb(202, 240, 193);
+    padding-top: 20px;
+    padding-left: 40px;
+   
+}
+
+.leftArrow a{
+    color: #024a1c !important;
+}
+/*          added*        */
+
+
+
 #prodetails{
     display: flex;
     margin-top: 20px;
@@ -15,20 +41,26 @@
     cursor: pointer;
 }
 #prodetails .single-pro-details{
+    /* width: 50%;
+    padding-top: 30px; */
     width: 50%;
-    padding-top: 30px;
 }
 #prodetails .single-pro-details h4{
-    padding: 40px 0 20px 0;
+    /* padding: 40px 0 20px 0; */
+    padding: 10px 0 10px 0;;
+    font-size: 20px;
+   
 }
-#prodetails .single-pro-details h2{
-    font-size: 26px;
+#prodetails .single-pro-details h3{
+    font-size: 20px;
+    margin-top: 2ex;
 }
 #prodetails .single-pro-details select{
     display: block;
     padding: 5px 10px;
     margin-bottom: 10px;
 }
+
 #prodetails .single-pro-details input{
     width: 50px;
     height: 47px;
@@ -40,7 +72,7 @@
     outline: none;
 }
 #prodetails .single-pro-details button{
-    background: #088178;
+    background: #024a1c;
     color: #ffffff;
 }
 #prodetails .single-pro-details span{

@@ -4,11 +4,11 @@
     align-items: center;
     justify-content: center;
 }
-#pagination a{
+/* #pagination a{
     display: flex;
     width: 50px;
     text-decoration: none;
-    background-color: #088178;
+    background-color: #044e0e;
     padding: 15px 20px;
     border-radius: 4px;
     font-weight: 600;
@@ -17,7 +17,54 @@
     text-align: center;
     align-items: center;
     justify-content: center;
+} */
+
+#pagination a {
+    display: flex;
+    min-width: 150px; /* Adjusted width for a larger button appearance */
+    height: 40px; /* Fixed height for consistency */
+    text-decoration: none;
+    background-color: #044e0e;
+    padding: 10px 15px; /* Padding adjusted for better spacing */
+    border-radius: 5px; /* Slightly larger border-radius for a modern rounded look */
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0px; /* Increased margin for better spacing around the button */
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Transition for a smooth hover effect */
+    cursor: pointer; /* Changes the mouse cursor to signify this element is clickable */
+    
 }
+
+.pagination2{
+    /* display: flex; */
+    min-width: 150px !important; /* Adjusted width for a larger button appearance */
+    height: 40px !important; /*Fixed height for consistency */
+
+    text-decoration: none !important;;
+    background-color: #044e0e !important;
+    padding: 10px 15px !important;
+     border-radius: 5px !important;
+    font-weight: 600 !important;; 
+    color: #ffffff !important;;
+    margin: 0px; /* Increased margin for better spacing around the button */
+    margin-top: 4ex;
+    /* text-align: center;
+    align-items: center;
+    justify-content: center; */
+    transition: background-color 0.3s ease !important; /* Transition for a smooth hover effect */
+    cursor: pointer !important;; /* Changes the mouse cursor to signify this element is clickable */
+    
+}
+
+
+#pagination a:hover {
+    background-color: #036b0c; /* Slightly darker green on hover for feedback */
+}
+
+
 #pagination img{
     display: flex;
     width: 25px;

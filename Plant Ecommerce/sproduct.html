@@ -12,46 +12,66 @@
     <link rel="stylesheet" href="styles/responsive.css">
     <link rel="stylesheet" href="styles/sproducts.css">
     <link rel="stylesheet" href="styles/product.css">
-
-        <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="styles/Shop/page-header.css">
+    <link rel="stylesheet" href="styles/Shop/pagination.css">
+   <!-- Font Awesome CSS -->
+   <link rel="stylesheet" href="assets/css/vendor/font.awesome.min.css">
+    <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
 <body>
     <section id="header">
-        <a href="index.html"><img src="img/logo.png" class="logo"></a>
+        <a href="index.html"><img id = "icon" src="img/icons/zaatar.png"> </a>
         <div>
+            
             <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html" class="active">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li id = "blogNav"><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id = "contact"><a href="contact.html">Contact</a></li>
+                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+               <!-- Hidden search box -->
+               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+
+               <li id="user-og"><a href = "cart.html"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+
+            <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
+
+                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a></li>
                 <img id="close" class="close-icon" src="img/icons/x.png">
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a>
-            <img id="bar" class="menu-icon" src="img/icons/bars.png">
+            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+
+            <a href = "cart.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a>
+            <img id="bar" class="menu-icon" src="img/icons/menu.png">
         </div>
     </section>
-    <section id="prodetails" class="section-p1">
+
+    <section class="leftArrow"> <a href="shop.html"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a></section>
+    
+    <section id="prodetails" class="section-p1 background">
         <div class="single-pro-image">
             <img src="img/products/f1.jpg" width="100%" id="MainImg">
             
         </div>
         <div class="single-pro-details">
-            <h4>Men's Fashion T-Shirt</h4>
-            <h2>$139.00</h2>
-            <button id="detailAdd" class="normal">Add To Cart</button>
+            <h4 class="productName">Men's Fashion T-Shirt</h4>
             <h4>Product Details</h4>
             <span>The Gildan Ultra Cotton T-shirt is made from a substancial 6.0 oz. per  aq.  yd.  fabric
             constructed from 100% cotton, this classic fit preshrunk jersey knit provides unmatched confort 
             witheach wear. Featuring a taped neck and shoulder, and a seamless double-needle collar, and 
             available in a range of colors, it offers it all in the ultimate head-turning package.</span>
+            <h3>$139.00</h3>
+            <button id = "detailAdd" class="pagination2"> Add To Cart</button>
+            
         </div>
     </section>
     <!-- <section id="product1" class="section-p1">
@@ -134,26 +154,26 @@
             <button class="normal">Sign Up</button>
         </div>
     </section>
+    <!-- Footer -->
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="img/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
-            <p><strong>Phone:</strong> +01 222 365 //(+91) 01 2345 6789</p>
+            <h4><b>Contact</b></h4>
+            <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
+            <p><strong>Phone:</strong> +(961) 70 222 365 </p>
             <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
             <div class="follow">
-                <h4>Follow Us</h4>
+                <h4><strong> Follow Us</strong></h4>
                 <div class="icon">
-                    <img class="footer-icon" src="img/icons/facebook.png">
-                    <img class="footer-icon" src="img/icons/twitter.png">
-                    <img class="footer-icon" src="img/icons/instagram.png">
-                    <img class="footer-icon" src="img/icons/youtube.png">
-                    <img class="footer-icon" src="img/icons/pinterest.png">
+                    <a href = "https://www.facebook.com/"> <img class="footer-icon" src="img/icons/facebook.png"> </a>
+                    <a href = "https://www.Twitter.com/"><img class="footer-icon" src="img/icons/twitter.png"></a>
+                    <a href = "https://www.instagram.com/"><img class="footer-icon" src="img/icons/instagram.png"></a>
+                    <a href = "https://www.youtube.com/"><img class="footer-icon" src="img/icons/youtube.png"></a>
+                    <a href = "https://www.pinterest.com/"><img class="footer-icon" src="img/icons/pinterest.png"></a>
                 </div>
             </div>
         </div>
         <div class="col">
-            <h4>About</h4>
+            <h4><b>About</b></h4>
             <a href="#">About Us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
@@ -161,13 +181,14 @@
             <a href="#">Contact Us</a>
         </div>
         <div class="col">
-            <h4>My Account</h4>
+            <h4><b>My Account</b></h4>
             <a href="#">Sign In</a>
             <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
+            <a href="#">Shop</a>
+            <a href="#">Detect My Plant Disease</a>
+            <a href="#">Detect Plants For Soil Type</a>
         </div>
+        <!--
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
@@ -177,13 +198,12 @@
             </div>
             <p>Secure Payment Gateways</p>
             <img src="img/pay/pay.png">
-        </div>
+        </div>-->
         <div class="copyright">
-            <p>2022, Beker06 - HTML CSS Ecommerce Template</p>
+            <p>2023, Zaatar Plant Store</p>
         </div>
     </footer>
-   
-   
+
     <script src="ProductDetils.js"></script>
 
 
