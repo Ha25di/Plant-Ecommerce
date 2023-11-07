@@ -238,5 +238,46 @@ MsearchIcon.addEventListener('click', function() {
 /******************************* End For search icon click ****************************** */
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('review-submit').addEventListener('click', function() {
+        // Collect values from the form
+        var title = document.getElementById('review-title').value;
+        var body = document.getElementById('review-body').value;
+        var name = document.getElementById('reviewer-name').value;
+        var date = document.getElementById('review-date').value;
+        var image = document.getElementById('review-image').value;
 
+        // Check if any of the fields are empty
+        if (!title || !body || !name || !date || !image) {
+            alert('Please fill in all fields.');
+            return;
+        }
 
+        // Create the new review element
+        var blogBox = document.createElement('div');
+        blogBox.className = 'blog-box';
+
+        blogBox.innerHTML = `
+            <div class="blog-img">
+                <img src="${image}">
+            </div>
+            <div class="blog-details">
+                <h4>${title}</h4>
+                <p>${body}</p>
+                <h5>${name}</h5>
+            </div>
+            <h1>${new Date(date).toLocaleDateString()}</h1>
+        `;
+
+        // Append the new review to the blog section
+        var blogSection = document.getElementById('blog');
+        blogSection.appendChild(blogBox);
+
+        // Clear the form fields
+        document.getElementById('review-title').value = '';
+        document.getElementById('review-body').value = '';
+        document.getElementById('reviewer-name').value = '';
+        document.getElementById('review-date').value = '';
+        document.getElementById('review-image').value = '';
+    });
+});

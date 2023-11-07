@@ -18,21 +18,34 @@
 </head>
 <body>
     <section id="header">
-        <a href="index.html"><img src="img/logo.png" class="logo"></a>
+        <a href="index.html"><img id = "icon" src="img/icons/zaatar.png"> </a>
         <div>
+            
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html" >Shop</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a></li>
+                <li id = "blogNav"><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id = "contact"><a href="contact.html">Contact</a></li>
+                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+               <!-- Hidden search box -->
+               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+
+               <li id="user-og"><a href = "cart.html"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+
+            <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
+
+                <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a></li>
                 <img id="close" class="close-icon" src="img/icons/x.png">
             </ul>
         </div>
         <div id="mobile">
-            <a href="cart.html"><img class="bag-icon" src="img/icons/shopping-bag.png"></a>
-            <img id="bar" class="menu-icon" src="img/icons/bars.png">
+            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+
+            <a href = "cart.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a>
+            <img id="bar" class="menu-icon" src="img/icons/menu.png">
         </div>
     </section>
     <section id="page-header" class="blog-header">
@@ -48,7 +61,7 @@
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
                 wolf chartreuse hexagon irony, godard...</p>
-                <a href="#">CONTINUE READING</a>
+                <h5>Jana Jaber</h5>
             </div>
             <h1>13/01</h1>
         </div>
@@ -60,7 +73,7 @@
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
                 wolf chartreuse hexagon irony, godard...</p>
-                <a href="#">CONTINUE READING</a>
+                <h5>Jana Jaber</h5>
             </div>
             <h1>13/04</h1>
         </div>
@@ -72,7 +85,7 @@
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
                 wolf chartreuse hexagon irony, godard...</p>
-                <a href="#">CONTINUE READING</a>
+                <h5>Jana Jaber</h5>
             </div>
             <h1>12/01</h1>
         </div>
@@ -84,7 +97,7 @@
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
                 wolf chartreuse hexagon irony, godard...</p>
-                <a href="#">CONTINUE READING</a>
+                <h5>Jana Jaber</h5>
             </div>
             <h1>16/01</h1>
         </div>
@@ -96,16 +109,28 @@
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
                 <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
                 wolf chartreuse hexagon irony, godard...</p>
-                <a href="#">CONTINUE READING</a>
+                <h5>Jana Jaber</h5>
             </div>
             <h1>10/03</h1>
         </div>
     </section>
-    <section id="pagination" class="section-p1">
+
+    <section id="add-review" class="section-p1">
+        <h2>Add Your Review</h2>
+        <div class="review-form">
+            <input type="text" id="user-name" placeholder="Your Name">
+            <input type="text" id="review-title" placeholder="Review Title">
+            <textarea id="review-content" placeholder="Your Review"></textarea>
+            <!-- <input type="file" id="review-image" accept="image/*"> -->
+            <button id="addicon" class="normal">Submit Review</button>
+        </div>
+    </section>
+    
+    <!-- <section id="pagination" class="section-p1">
         <a href="#">1</a>
         <a href="#">2</a>
         <img src="img/icons/right-arrow.png" class="arrow-icon">
-    </section>
+    </section> -->
     <section id="newsletter" class="section-p1">
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -116,26 +141,26 @@
             <button class="normal">Sign Up</button>
         </div>
     </section>
+    <!-- Footer -->
     <footer class="section-p1">
         <div class="col">
-            <img class="logo" src="img/logo.png" alt="">
-            <h4>Contact</h4>
-            <p><strong>Address:</strong> 562 Wellington Road, Street 32, San Francisco</p>
-            <p><strong>Phone:</strong> +01 222 365 //(+91) 01 2345 6789</p>
+            <h4><b>Contact</b></h4>
+            <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
+            <p><strong>Phone:</strong> +(961) 70 222 365 </p>
             <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
             <div class="follow">
-                <h4>Follow Us</h4>
+                <h4><strong> Follow Us</strong></h4>
                 <div class="icon">
-                    <img class="footer-icon" src="img/icons/facebook.png">
-                    <img class="footer-icon" src="img/icons/twitter.png">
-                    <img class="footer-icon" src="img/icons/instagram.png">
-                    <img class="footer-icon" src="img/icons/youtube.png">
-                    <img class="footer-icon" src="img/icons/pinterest.png">
+                    <a href = "https://www.facebook.com/"> <img class="footer-icon" src="img/icons/facebook.png"> </a>
+                    <a href = "https://www.Twitter.com/"><img class="footer-icon" src="img/icons/twitter.png"></a>
+                    <a href = "https://www.instagram.com/"><img class="footer-icon" src="img/icons/instagram.png"></a>
+                    <a href = "https://www.youtube.com/"><img class="footer-icon" src="img/icons/youtube.png"></a>
+                    <a href = "https://www.pinterest.com/"><img class="footer-icon" src="img/icons/pinterest.png"></a>
                 </div>
             </div>
         </div>
         <div class="col">
-            <h4>About</h4>
+            <h4><b>About</b></h4>
             <a href="#">About Us</a>
             <a href="#">Delivery Information</a>
             <a href="#">Privacy Policy</a>
@@ -143,13 +168,14 @@
             <a href="#">Contact Us</a>
         </div>
         <div class="col">
-            <h4>My Account</h4>
+            <h4><b>My Account</b></h4>
             <a href="#">Sign In</a>
             <a href="#">View Cart</a>
-            <a href="#">My Wishlist</a>
-            <a href="#">Track My Order</a>
-            <a href="#">Help</a>
+            <a href="#">Shop</a>
+            <a href="#">Detect My Plant Disease</a>
+            <a href="#">Detect Plants For Soil Type</a>
         </div>
+        <!--
         <div class="col install">
             <h4>Install App</h4>
             <p>From App Store or Google Play</p>
@@ -159,11 +185,12 @@
             </div>
             <p>Secure Payment Gateways</p>
             <img src="img/pay/pay.png">
-        </div>
+        </div>-->
         <div class="copyright">
-            <p>2022, Beker06 - HTML CSS Ecommerce Template</p>
+            <p>2023, Zaatar Plant Store</p>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+    <script src="blog.js"></script>
 </body>
 </html>

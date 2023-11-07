@@ -1,6 +1,7 @@
 #page-header.blog-header{
     background-image: url("../../img/banner/b19.jpg");
 }
+
 #blog{
     padding: 150px 150px 0 150px;
 }
@@ -72,3 +73,41 @@
     }
 
 }
+
+
+#add-review {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.review-form input,
+.review-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.review-form input[type="file"] {
+    border: none;
+    background-color: #e7e7e7;
+}
+
+.review-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #8FB339;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.review-form button:hover {
+    background-color: #729C1D;
+}
+
+/* Responsive adjustments can be added as necessary */
