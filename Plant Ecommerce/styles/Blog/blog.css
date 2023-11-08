@@ -1,11 +1,11 @@
 #page-header.blog-header{
-    background-image: url("../../img/banner/b19.jpg");
+    background-image: url("../../img/banner/back.jpg");
 }
 
 #blog{
     padding: 150px 150px 0 150px;
 }
-#blog .blog-box{
+/* #blog .blog-box{
     display: flex;
     align-items: center;
     width: 100%;
@@ -48,10 +48,11 @@
     position: absolute;
     top: -52px;
     left: 0;
-    font-size: 70px;
+    font-size: x-large;
     font-weight: 700;
-    color: #c9cbce;
+    color: rgb(4, 75, 4);
     z-index: -9;
+    margin-bottom: 1ex;
 }
 
 @media (max-width: 477px) {
@@ -72,13 +73,90 @@
         width: 100%;
     }
 
+} */
+#blog .blog-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-bottom: 90px;
 }
+
+#blog .blog-img {
+    flex: 0 0 auto; /* Do not grow or shrink */
+    max-width: 300px; /* Maximum width for the image */
+    margin-right: 40px;
+}
+
+#blog img {
+    width: 100%;
+    height: auto; /* Maintain the aspect ratio */
+    object-fit: cover;
+}
+
+#blog .blog-details {
+    flex: 1; /* Take up the remaining space */
+    margin-top: 1ex;
+}
+
+#blog .blog-details a {
+    /* ... Your anchor styles here ... */
+    margin-top: 20px;
+}
+
+#blog .blog-box h1 {
+    position: absolute;
+    top: -52px;
+    left: 0;
+    font-size: x-large;
+    font-weight: 700;
+    color: rgb(4, 75, 4);
+    z-index: -9;
+    margin-bottom: 1ex;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+    #blog .blog-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #blog .blog-img {
+        max-width: none; /* Remove max-width on smaller screens */
+        width: 100%; /* Full width for the image */
+        margin-right: 0; /* Reset margin right */
+    }
+    #blog .blog-details {
+        width: 100%; /* Full width for text */
+    }
+    #blog .blog-box h1 {
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #add-review {
     background-color: #f4f4f4;
     padding: 20px;
     margin-top: 30px;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 5%;
 }
 
 .review-form input,
@@ -95,16 +173,16 @@
     background-color: #e7e7e7;
 }
 
-.review-form button {
-    width: 100%;
+/* .review-form button {
+    /* width: 100%;
     padding: 10px;
     border: none;
     background-color: #8FB339;
     color: white;
     cursor: pointer;
     border-radius: 4px;
-    margin-top: 10px;
-}
+    margin-top: 10px; 
+} */
 
 .review-form button:hover {
     background-color: #729C1D;
