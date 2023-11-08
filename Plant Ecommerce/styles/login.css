@@ -1,0 +1,101 @@
+.login{
+    text-align: center;
+    background-color:  rgb(168, 239, 168);
+    width: 60%;
+    justify-content: center;
+    display: flex;
+    
+    
+    
+}
+
+
+
+.backlogin{
+    background-color: #fff;
+    width:80%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 10%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+
+
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    
+    
+    
+}
+
+.form input {
+    outline: none;
+    display: block;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 3%;
+    border: 1.5px solid green;
+    color:green;
+    font-family: "serif";
+    box-sizing: border-box;
+    font-size: large;
+    font-weight: normal; 
+
+}
+
+
+
+.submit{
+    background-color: rgb(168, 239, 168);
+}
+
+.aLogin{
+    text-decoration: underline;
+    color: green;
+    
+    
+}
+
+@media screen and (max-width: 800px) and (min-width: 0px){
+
+
+
+    .login{
+        text-align: center;
+        background-color: rgb(168, 239, 168);
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        
+        
+        
+    }
+
+    .backlogin{
+        background-color: #fff;
+        width:80%;
+        margin-top: 20%;
+        margin-bottom: 20%;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    
+    }
+
+}
+
+ /* Foe errors in log in */
+
+ .errors{
+
+    border: 2px solid goldenrod;
+    text-align: center;
+    font-weight: 900;
+    width: 80%;
+    margin: auto;
+    margin-bottom: 2.5ex;
+    background-color: palegoldenrod;
+    color: darkred;
+    
+
+ }

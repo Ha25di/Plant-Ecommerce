@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="styles/responsive.css">
     <link rel="stylesheet" href="styles/Shop/page-header.css">
     <link rel="stylesheet" href="styles/Shop/pagination.css">
-    <link rel="stylesheet" href="styles/Blog/blog.css">
+    <link rel="stylesheet" href="styles/login.css">
+
 
     <!-- CSS
 	============================================ -->
@@ -51,14 +52,14 @@
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="shop.html" >Shop</a></li>
-                <li id = "blogNav"><a href="blog.html" class="active">Blog</a></li>
+                <li id = "blogNav"><a href="blog.html" >Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li id = "contact"><a href="contact.html">Contact</a></li>
                 <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
                <!-- Hidden search box -->
                <input type="text" id="search-input" placeholder="Search..." style="display: none;">
 
-               <li id="user-og"><a href = "cart.html"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+               <li id="user-og"><a href = "login.html#loginglob" class="active"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
 
             <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
 
@@ -75,100 +76,63 @@
             <img id="bar" class="menu-icon" src="img/icons/menu.png">
         </div>
     </section>
-    <section id="page-header" class="blog-header">
-        <h2>#readmore</h2>
-        <p>Read all case studies about about our products</p>
-    </section>
-    <section id="blog">
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="img/blog/b1.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>13/01</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="img/blog/b2.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>13/04</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="img/blog/b3.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>12/01</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="img/blog/b4.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>16/01</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="img/blog/b6.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>10/03</h1>
-        </div>
+<section id="loginglob">
+    <br>
+    <div style="text-align: center; display: flex; justify-content: center; margin: 4%;">
+    <div class = "login" id = "loginForm">
+           
+
+    <div class="backlogin">
+        <form method="post" action="" class = "form">
+            <h2 style="font-family: serif; font-weight: normal; margin-bottom: 5%; color: rgb(6, 91, 6);"> Login To Your Account</h2>
+        
+            <p><input type = "text" name = "username" placeholder = "Username" autocomplete="on" required size = "25"></p>
+            <p><input type="password" name = "password" size = "25" placeholder = "Password"></p>
+            <p><input type = "submit" name = "submit" value = "Log in" size = "25" class = "submit"></p>
+       </form>
+       
+       <p class="aLogin" style="text-decoration: none;">Need an Account? <a href = "signup.html#loginglob" class="aLogin"> Register Now</a></p>
+       
+      
+    </div>
+    </div>
+           
+     </div>
     </section>
 
-    <section id="add-review" class="section-p1">
-        <h2>Add Your Review</h2>
-        <div class="review-form">
-            <input type="text" id="user-name" placeholder="Your Name">
-            <input type="text" id="review-title" placeholder="Review Title">
-            <textarea id="review-content" placeholder="Your Review"></textarea>
-            <!-- <input type="file" id="review-image" accept="image/*"> -->
-            <button id="addicon" class="normal">Submit Review</button>
-        </div>
-    </section>
+        <!-- JS
+    ============================================ -->
     
-    <!-- <section id="pagination" class="section-p1">
-        <a href="#">1</a>
-        <a href="#">2</a>
-        <img src="img/icons/right-arrow.png" class="arrow-icon">
-    </section> -->
-    <section id="newsletter" class="section-p1">
-        <div class="newstext">
-            <h4>Sign Up For Newsletter</h4>
-            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
-        </div>
-        <div class="form">
-            <input type="text" placeholder="Your email address">
-            <button class="normal">Sign Up</button>
-        </div>
-    </section>
-    <!-- Footer -->
+    
+        <!-- jQuery JS -->
+        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+        <!-- jQuery Migrate JS -->
+        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+        <!-- Modernizer JS -->
+        <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
+    
+    
+        <!-- Swiper Slider JS -->
+        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
+        <!-- nice select JS -->
+        <script src="assets/js/plugins/nice-select.min.js"></script>
+        <!-- Ajaxchimpt js -->
+        <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+        <!-- Jquery Ui js -->
+        <script src="assets/js/plugins/jquery-ui.min.js"></script>
+        <!-- Jquery Countdown js -->
+        <script src="assets/js/plugins/jquery.countdown.min.js"></script>
+        <!-- jquery magnific popup js -->
+        <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
+    
+        <!-- Main JS -->
+        <script src="assets/js/main.js"></script>
+    
+    
+    </body>
+
     <footer class="section-p1">
         <div class="col">
             <h4><b>Contact</b></h4>

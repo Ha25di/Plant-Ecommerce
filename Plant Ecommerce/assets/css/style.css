@@ -716,3 +716,62 @@
   -o-transition: .3s;
   transition: .3s;
 }
+
+
+
+/*    17 - Pages - Login-Register
+/*----------------------------------------*/
+.login-register-wrapper {
+  background: #f6f6f6 none repeat scroll 0 0;
+  padding: 37px 40px;
+  text-align: left;
+  overflow: hidden;
+}
+
+@media (max-width: 479px) {
+  .login-register-wrapper {
+    padding: 25px 10px;
+  }
+}
+
+.login-register-wrapper .title-4 {
+  font-weight: 600;
+}
+
+.login-register-wrapper .single-input-item input {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #000000;
+  font-size: 14px;
+  height: 40px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border: 1px solid #ffffff;
+}
+
+.login-register-wrapper .single-input-item input:focus {
+  border: 1px solid #E72463;
+}
+.custom-control-input {
+  margin-right: 10px;
+}
+/* ---Section Space--- */
+.mt-no-text {
+  margin-top: 100px;
+}
+
+@media (max-width: 991px) {
+  .mt-no-text {
+    margin-top: 80px;
+  }
+}
+
+@media (max-width: 479px) {
+  .mt-no-text {
+    margin-top: 50px;
+  }
+}
