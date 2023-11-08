@@ -11,7 +11,7 @@
     left: 0;
 }
 
-/* added */
+/************************************** added **************************************/
 #header h3 {
     color: black;
     text-decoration: none;
@@ -34,7 +34,46 @@
 #mobile-search-og{
     cursor: pointer;
 }
- /*  */
+
+.cart-icon-container {
+    position: relative;
+    display: inline-block;
+    /* additional styling as needed */
+  }
+  
+  .cart-counter {
+    position: absolute;
+    top: -10px;
+    right: -2px;
+    background-color: red;
+    color: white;
+     border-radius: 50%; 
+    padding-top: 0.5ex;
+    padding-left: 0.5ex;
+    padding-right: 0.5ex;
+    font-size: 0.75em;
+  }
+
+  .mobile-cart-icon-container{
+    /* position: relative; */
+    display: inline-block;
+  }
+
+  .mobile-cart-counter {
+    /* position: fixed; */
+    /* top: 5%;
+    right: 20%; */
+    background-color: red;
+    color: white;
+     border-radius: 50%; 
+    padding-top: 0.5ex;
+    padding-left: 0.5ex;
+    padding-right: 0.5ex;
+    margin-left: 1ex;
+    font-size: 0.75em;
+  }
+  
+ /*********************************************** ********************************************* */
 
 
 #navbar{

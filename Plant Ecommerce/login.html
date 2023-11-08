@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beker06 Ecommerce | Blog</title>
+    <title>zaatar | Login</title>
     <link rel="stylesheet" href="styles/globals.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/hero.css">
@@ -15,35 +15,11 @@
     <link rel="stylesheet" href="styles/Shop/page-header.css">
     <link rel="stylesheet" href="styles/Shop/pagination.css">
     <link rel="stylesheet" href="styles/login.css">
-
-
-    <!-- CSS
-	============================================ -->
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/vendor/bootstrap.min.css">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="assets/css/vendor/font.awesome.min.css">
-    <!-- Linear Icons CSS -->
-    <link rel="stylesheet" href="assets/css/vendor/linearicons.min.css">
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
-    <!-- Animation CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/animate.min.css">
-    <!-- Jquery ui CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/jquery-ui.min.css">
-    <!-- Nice Select CSS -->
-    <link rel="stylesheet" href="assets/css/plugins/nice-select.min.css">
-    <!-- Magnific Popup -->
-    <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
-
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-    <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
 </head>
+
 <body>
     <section id="header">
         <a href="index.html"><img id = "icon" src="img/icons/zaatar.png"> </a>
@@ -56,12 +32,11 @@
                 <li><a href="about.html">About</a></li>
                 <li id = "contact"><a href="contact.html">Contact</a></li>
                 <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
-               <!-- Hidden search box -->
+              
                <input type="text" id="search-input" placeholder="Search..." style="display: none;">
 
-               <li id="user-og"><a href = "login.html#loginglob" class="active"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+               <li id="user-og"><a href = "login.html" class="active"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
 
-            <!--   <li id="bag-og"><a href="cart.html"> <i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a></li> -->
 
                 <li id="bag-og"><a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a></li>
                 <img id="close" class="close-icon" src="img/icons/x.png">
@@ -71,69 +46,70 @@
             <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
             <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
 
-            <a href = "cart.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <a id="mobile-user-og" href = "login.html" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
             <a href="cart.html"><img class="bag-icon" src="img/icons/bag.png"></a>
             <img id="bar" class="menu-icon" src="img/icons/menu.png">
         </div>
     </section>
-<section id="loginglob">
-    <br>
-    <div style="text-align: center; display: flex; justify-content: center; margin: 4%;">
-    <div class = "login" id = "loginForm">
-           
 
-    <div class="backlogin">
-        <form method="post" action="" class = "form">
-            <h2 style="font-family: serif; font-weight: normal; margin-bottom: 5%; color: rgb(6, 91, 6);"> Login To Your Account</h2>
-        
-            <p><input type = "text" name = "username" placeholder = "Username" autocomplete="on" required size = "25"></p>
-            <p><input type="password" name = "password" size = "25" placeholder = "Password"></p>
-            <p><input type = "submit" name = "submit" value = "Log in" size = "25" class = "submit"></p>
-       </form>
-       
-       <p class="aLogin" style="text-decoration: none;">Need an Account? <a href = "signup.html#loginglob" class="aLogin"> Register Now</a></p>
-       
-      
+
+    <div class="wrapper">
+        <div class="form-container sign-up">
+            <form action="#">
+                <h2>sign up</h2>
+                <div class="form-group">
+                    <input type="text" required>
+                    <label for="">username</label>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" required>
+                    <label for="">email</label>
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" required>
+                    <label for="">password</label>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" required>
+                    <label for="">confirm password</label>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                </div>
+                <button type="submit" class="btn">sign up</button>
+                <div class="link">
+                    <p>You already have an account?<a href="#" class="signin-link"> Sign in</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-container sign-in">
+            <form action="#">
+                <h2>Sign in</h2>
+                <div class="form-group">
+                    <input type="text" required>
+                    <i class="fa fa-user" aria-hidden="true"></i>
+                    <label for="">username</label>
+                </div>
+                <div class="form-group">
+                    <input type="password" required>
+                    <i class="fa fa-lock" aria-hidden="true"></i>
+                    <label for="">password</label>
+                </div>
+                <div class="forgot-pass">
+                    <a href="#">forgot password?</a>
+                </div>
+                <button type="submit" class="btn">login</button>
+                <div class="link">
+                    <p>Don't have an account?<a href="#" class="signup-link"> sign up</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-    </div>
-           
-     </div>
-    </section>
+    <!-- <script src="https://kit.fontawesome.com/9e5ba2e3f5.js" crossorigin="anonymous"></script> -->
 
-        <!-- JS
-    ============================================ -->
-    
-    
-        <!-- jQuery JS -->
-        <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-        <!-- jQuery Migrate JS -->
-        <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
-        <!-- Modernizer JS -->
-        <script src="assets/js/vendor/modernizr-3.7.1.min.js"></script>
-        <!-- Bootstrap JS -->
-        <script src="assets/js/vendor/bootstrap.bundle.min.js"></script>
-    
-    
-        <!-- Swiper Slider JS -->
-        <script src="assets/js/plugins/swiper-bundle.min.js"></script>
-        <!-- nice select JS -->
-        <script src="assets/js/plugins/nice-select.min.js"></script>
-        <!-- Ajaxchimpt js -->
-        <script src="assets/js/plugins/jquery.ajaxchimp.min.js"></script>
-        <!-- Jquery Ui js -->
-        <script src="assets/js/plugins/jquery-ui.min.js"></script>
-        <!-- Jquery Countdown js -->
-        <script src="assets/js/plugins/jquery.countdown.min.js"></script>
-        <!-- jquery magnific popup js -->
-        <script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-    
-        <!-- Main JS -->
-        <script src="assets/js/main.js"></script>
-    
-    
-    </body>
 
-    <footer class="section-p1">
+    <footer class="section-p1" style="background-color: white;">
         <div class="col">
             <h4><b>Contact</b></h4>
             <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
@@ -166,22 +142,12 @@
             <a href="#">Detect My Plant Disease</a>
             <a href="#">Detect Plants For Soil Type</a>
         </div>
-        <!--
-        <div class="col install">
-            <h4>Install App</h4>
-            <p>From App Store or Google Play</p>
-            <div class="row">
-                <img src="img/pay/app.jpg" alt="">
-                <img src="img/pay/play.jpg" alt="">
-            </div>
-            <p>Secure Payment Gateways</p>
-            <img src="img/pay/pay.png">
-        </div>-->
+        
         <div class="copyright">
             <p>2023, Zaatar Plant Store</p>
         </div>
     </footer>
 
-    <script src="blog.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

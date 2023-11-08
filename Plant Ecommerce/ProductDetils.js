@@ -122,7 +122,52 @@ function addToCart(productID) {
     
     // Save the updated cart back to localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCounter();
   }
+
+
+
+
+// Add number of items to the cart
+function updateCartCounter() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalQuantity = cart.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.quantity;
+  }, 0);
+  
+  if(document.getElementById("cartCounter")){
+  document.getElementById("cartCounter").textContent = totalQuantity;
+  }
+
+  if(document.getElementById("mobile-cartCounter")) {
+    document.getElementById("mobile-cartCounter").textContent = totalQuantity;
+  }
+}
+
+// Event listener for the storage event to update the counter when changes are made in another page
+window.addEventListener('storage', function(event) {
+  if (event.key === 'cart') {
+    updateCartCounter();
+  }
+});
+
+// Call updateCartCounter when the page loads to initialize the counter
+document.addEventListener('DOMContentLoaded', updateCartCounter);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   
   // Attach the click event listener to each cart icon
   document.querySelectorAll('.pro').forEach((productElement, index) => {

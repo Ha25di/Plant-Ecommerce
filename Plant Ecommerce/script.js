@@ -1,6 +1,4 @@
-
 /******************************* Start add to Cart ****************************** */
-
 // This function will be called when a cart icon is clicked
 function addToCart(productID) {
   // Retrieve existing cart from localStorage
@@ -21,11 +19,13 @@ function addToCart(productID) {
       quantity: 1 // Default quantity is 1
   };
 
+   
   // Add the product to the cart array
   let productIndex = cart.findIndex((p) => p.id === productID);
   if (productIndex > -1) {
     // Product exists, increment the quantity
     cart[productIndex].quantity += 1;
+   
   } else {
     // Add the new product to the cart
     cart.push(product);
@@ -44,10 +44,52 @@ function addToCart(productID) {
       popup: 'my-swal' // This is a class you can define in your CSS file
     }
   });
-  
   // Save the updated cart back to localStorage
   localStorage.setItem('cart', JSON.stringify(cart));
+   // Add the number to the cart
+   updateCartCounter();
 }
+
+
+
+
+
+// Add number of items to the cart
+function updateCartCounter() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const totalQuantity = cart.reduce((accumulator, currentItem) => {
+    return accumulator + currentItem.quantity;
+  }, 0);
+
+  if(document.getElementById("cartCounter")){
+  document.getElementById("cartCounter").textContent = totalQuantity;
+  }
+
+  if(document.getElementById("mobile-cartCounter")) {
+    document.getElementById("mobile-cartCounter").textContent = totalQuantity;
+  }
+}
+
+// Event listener for the storage event to update the counter when changes are made in another page
+window.addEventListener('storage', function(event) {
+  if (event.key === 'cart') {
+    updateCartCounter();
+  }
+});
+
+// Call updateCartCounter when the page loads to initialize the counter
+document.addEventListener('DOMContentLoaded', updateCartCounter);
+
+
+
+
+
+
+
+
+
+
+
 
 // Attach the click event listener to each cart icon
 document.querySelectorAll('.pro').forEach((productElement, index) => {
@@ -62,7 +104,7 @@ document.querySelectorAll('.pro').forEach((productElement, index) => {
 // This function will render the cart items on the cart page
 function renderCart() {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const cartBody = document.getElementById('cart-body');
+  const cartBody = document.getElementById('cart-body');  
   
   // Clear the cart body
   cartBody.innerHTML = '';
@@ -93,6 +135,7 @@ function removeFromCart(index) {
   localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
   renderCart(); // Re-render the cart
   updateCartTotal();
+  updateCartCounter();
 }
 
 /******************************* End Remove from Cart ****************************** */
@@ -109,6 +152,7 @@ function updateQuantity(index, quantity) {
   localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
   renderCart(); // Re-render the cart to update the subtotal
   updateCartTotal();
+  updateCartCounter();
 }
 
 // Call the renderCart function to populate the cart when the page is loaded
@@ -281,3 +325,20 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('review-image').value = '';
     });
 });
+
+
+/******************************* Start code for login/signup ****************************** */
+let wrapper = document.querySelector('.wrapper'),
+    signUpLink = document.querySelector('.link .signup-link'),
+    signInLink = document.querySelector('.link .signin-link');
+
+signUpLink.addEventListener('click', () => {
+    wrapper.classList.add('animated-signin');
+    wrapper.classList.remove('animated-signup');
+});
+
+signInLink.addEventListener('click', () => {
+    wrapper.classList.add('animated-signup');
+    wrapper.classList.remove('animated-signin');
+});
+/******************************* End code for login/signup ****************************** */
