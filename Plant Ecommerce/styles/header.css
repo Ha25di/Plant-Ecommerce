@@ -60,12 +60,12 @@
   }
 
   .mobile-cart-counter {
-    /* position: fixed; */
-    /* top: 5%;
-    right: 20%; */
+    position: relative; 
+    top: -2ex;
+    right: 0.75ex;
     background-color: red;
     color: white;
-     border-radius: 50%; 
+    border-radius: 50%; 
     padding-top: 0.5ex;
     padding-left: 0.5ex;
     padding-right: 0.5ex;
@@ -108,6 +108,10 @@
     bottom: -4px;
     left: 20px;
 }
+
+/********************************/
+
+/********************************/
 
 
 

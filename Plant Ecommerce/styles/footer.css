@@ -2,12 +2,16 @@ footer{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    /* justify-content: space-around; */
 }
 footer .col{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* align-items: center;  */
     margin-bottom: 20px;
+    border: 2px solid red;
+
 }
 .footer-icon{
     width: 20px;
