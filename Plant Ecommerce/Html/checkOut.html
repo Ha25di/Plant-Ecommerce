@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaatar | CheckOut</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="../img/icons/zaatar.png">
+    <link rel="stylesheet" href="../styles/globals.css">
+    <link rel="stylesheet" href="../styles/header.css">
+    <link rel="stylesheet" href="../styles/hero.css">
+    <link rel="stylesheet" href="../styles/product.css">
+    <link rel="stylesheet" href="../styles/newsletter.css">
+    <link rel="stylesheet" href="../styles/footer.css">
+    <link rel="stylesheet" href="../styles/responsive.css">
+    <link rel="stylesheet" href="../styles/checkOut/checkOut.css">
+    <link rel="stylesheet" href="../styles/features.css">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="../assets/css/vendor/font.awesome.min.css">
+
+
+</head>
+<body>
+    <section id="header">
+        <a href="index.html"><img id = "icon" src="../img/icons/zaatar.png"> </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li id = "blogNav"><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id = "contact"><a href="contact.html">Contact</a></li>
+                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+               <!-- Hidden search box -->
+               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+               <li id="user-og"><a href = "login.html#loginglob"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+                <li id="bag-og" class="cart-icon-container"><a href="cart.html" class="active"><img class="bag-icon" src="../img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
+                <img id="close" class="close-icon" src="../img/icons/x.png">
+            </ul>
+        </div>
+        <div id="mobile">
+            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+            <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <!-- cart for mobile-->
+            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="../img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
+            <img id="bar" class="menu-icon" src="../img/icons/menu.png">
+        </div>
+    </section>
+
+    <div class="container">
+
+        <div class="card-container">
+    
+            <div class="front">
+                <div class="image">
+                    <img src="img/checkout/chip.png" alt="">
+                    <img src="img/checkout/visa.png" alt="">
+                </div>
+                <div class="card-number-box">################</div>
+                <div class="flexbox">
+                    <div class="box">
+                        <span>card holder</span>
+                        <div class="card-holder-name">full name</div>
+                    </div>
+                    <div class="box">
+                        <span>expires</span>
+                        <div class="expiration">
+                            <span class="exp-month">mm</span>
+                            <span class="exp-year">yy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="back">
+                <div class="stripe"></div>
+                <div class="box">
+                    <span>cvv</span>
+                    <div class="cvv-box"></div>
+                    <img src="img/checkout/visa.png" alt="">
+                </div>
+            </div>
+    
+        </div>
+    
+        <form action="">
+            <div class="inputBox">
+                <span>card number</span>
+                <input type="text" maxlength="16" class="card-number-input">
+            </div>
+            <div class="inputBox">
+                <span>card holder</span>
+                <input type="text" class="card-holder-input">
+            </div>
+           
+            <div class="flexbox">
+                <div class="inputBox">
+                    <span>expiration mm</span>
+                    <select name="" id="" class="month-input">
+                        <option value="month" selected disabled>month</option>
+                        <option value="01">01</option>
+                        <option value="02">02</option>
+                        <option value="03">03</option>
+                        <option value="04">04</option>
+                        <option value="05">05</option>
+                        <option value="06">06</option>
+                        <option value="07">07</option>
+                        <option value="08">08</option>
+                        <option value="09">09</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>expiration yy</span>
+                    <select name="" id="" class="year-input">
+                        <option value="year" selected disabled>year</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                    </select>
+                </div>
+                <div class="inputBox">
+                    <span>cvv</span>
+                    <input type="text" maxlength="4" class="cvv-input">
+                </div>
+            </div>
+            <div class="inputBox">
+                <span>email</span>
+                <input type="text" class="card-holder-input">
+            </div>
+            <div class="inputBox">
+                <span>Address</span>
+                <input type="text" class="card-holder-input">
+            </div>
+            <input type="submit" value="submit" class="submit-btn">
+        </form>
+    
+    </div>
+    
+    <section id="newsletter" class="section-p1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="section-p1">
+        <div class="col">
+            <h4><b>About</b></h4>
+            <a href="#">About Us</a>
+            <a href="#">Delivery Information</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div class="col">
+            <h4><b>My Account</b></h4>
+            <a href="#">Sign In</a>
+            <a href="#">View Cart</a>
+            <a href="#">Shop</a>
+            <a href="#">Detect My Plant Disease</a>
+            <a href="#">Detect Plants For Soil Type</a>
+        </div>
+
+        <div class="col">
+            <h4><b>Contact</b></h4>
+            <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
+            <p><strong>Phone:</strong> +(961) 70 222 365 </p>
+            <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+            <div class="follow">
+                <h4><strong> Follow Us</strong></h4>
+                <div class="icon">
+                    <a href = "https://www.facebook.com/"> <img class="footer-icon" src="../img/icons/facebook.png"> </a>
+                    <a href = "https://www.Twitter.com/"><img class="footer-icon" src="../img/icons/twitter.png"></a>
+                    <a href = "https://www.instagram.com/"><img class="footer-icon" src="../img/icons/instagram.png"></a>
+                    <a href = "https://www.youtube.com/"><img class="footer-icon" src="../img/icons/youtube.png"></a>
+                    <a href = "https://www.pinterest.com/"><img class="footer-icon" src="../img/icons/pinterest.png"></a>
+                </div>
+            </div>
+        </div>
+    
+    </footer>
+
+    <div class="copyright">
+        <p> 2023, Zaatar Plant Store</p>
+    </div>
+
+    <script src="../js/script.js"></script>
+    
+    <script>
+        /*********** Start code for Payment ********** */
+
+
+        document.querySelector('.card-number-input').oninput = () => {
+            document.querySelector('.card-number-box').innerText = document.querySelector('.card-number-input').value;
+        }
+
+        document.querySelector('.card-holder-input').oninput = () => {
+            document.querySelector('.card-holder-name').innerText = document.querySelector('.card-holder-input').value;
+        }
+
+        document.querySelector('.month-input').oninput = () => {
+            document.querySelector('.exp-month').innerText = document.querySelector('.month-input').value;
+        }
+
+        document.querySelector('.year-input').oninput = () => {
+            document.querySelector('.exp-year').innerText = document.querySelector('.year-input').value;
+        }
+
+        document.querySelector('.cvv-input').onmouseenter = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(-180deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(0deg)';
+        }
+
+        document.querySelector('.cvv-input').onmouseleave = () => {
+            document.querySelector('.front').style.transform = 'perspective(1000px) rotateY(0deg)';
+            document.querySelector('.back').style.transform = 'perspective(1000px) rotateY(180deg)';
+        }
+
+        document.querySelector('.cvv-input').oninput = () => {
+            document.querySelector('.cvv-box').innerText = document.querySelector('.cvv-input').value;
+        }
+        /*********** End code for Payment ********** */
+
+    </script>
+
+</body>
+
+</html>
