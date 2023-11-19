@@ -51,11 +51,22 @@ h3{
 
 }
 
+.hidden {
+  display: none;
+}
+
 .aboutDiv{
     /* padding-left: 100px; */
      width: 50%;
      border: 2px solid red;
     /* padding: auto;  */
+
+}
+.aboutDiv1{
+  /* padding-left: 100px; */
+   width: 50%;
+   border: 2px solid red;
+  /* padding: auto;  */
 
 }
 
