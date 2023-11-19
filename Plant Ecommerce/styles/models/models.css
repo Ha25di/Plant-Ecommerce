@@ -29,6 +29,7 @@ h3{
     flex-wrap: wrap; /* Ensures the flex items can wrap onto the next line if necessary */
     justify-content: center;
     gap: 0px; /* Adds space between flex items */
+   
 
 }
 
@@ -51,13 +52,25 @@ h3{
 
 }
 
-.aboutDiv{
+
+.hidden {
+    display: none;
+  }
+  
+  .aboutDiv{
+      /* padding-left: 100px; */
+       width: 50%;
+       border: 2px solid red;
+      /* padding: auto;  */
+  
+  }
+  .aboutDiv1{
     /* padding-left: 100px; */
      width: 50%;
      border: 2px solid red;
     /* padding: auto;  */
-
-}
+  
+  }
 
 
 #aboutp {
@@ -67,6 +80,7 @@ h3{
     max-width: 50%; /* Sets a max-width of 50% for larger screens */
     box-sizing: border-box; /* Includes padding and border in the element's total width and height */
     color: green;
+    padding-top: 2ex;
 } 
 
 #aboutp span{
@@ -107,13 +121,16 @@ h3{
 
 
 
-
-
 :root {
     --blue: #0071ff;
     --light-blue: #b6dbf6;
     --dark-blue: #005dd1;
     --grey: #f2f2f2;
+  }
+
+  .UploadIcon{
+     font-size: xx-large; 
+     color: green;
   }
 
   .upload{

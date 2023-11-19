@@ -125,6 +125,8 @@
               </div>
               <button class="select-image">Select Image</button>
               <button class="upload-image" id = "upload" >Upload Image</button>
+              <p class="error-message" style="color: red; display: none;">Please select an image first</p>
+
             </div>
           </div>
 
@@ -132,9 +134,9 @@
         </div>
       </div>
 
-      <!-- <div class="aboutDiv" style="margin: auto;"><img src="../img/banner/b10.jpg"></div>   -->
-
-      <div class="aboutDiv" style="margin: auto;">
+      <div class="aboutDiv1" style="margin: auto;"><img src="../img/banner/b10.jpg"></div>  
+      
+      <div class="aboutDiv hidden" style="margin: auto;">
         <center><p>Here is the possible disease of your plant !</p></center>
         <center><span> Powdery mildew </span></center>
         <center><p>Check Out our Herbal Medicines</p></center>
@@ -209,71 +211,100 @@
       </div>
     </footer>
 
-<script>
-    function swalsuccess() {
-        let timerInterval
-        Swal.fire({
+    <script>
+      let aboutDiv1;
+      let aboutDiv;
+      document.addEventListener("DOMContentLoaded", function() {
+          aboutDiv1 = document.querySelector(".aboutDiv1");
+          aboutDiv = document.querySelector(".aboutDiv");
+          const selectImage = document.querySelector(".select-image");
+          const inputFile = document.querySelector("#file");
+          const imgArea = document.querySelector(".img-area");
+          const uploadButton = document.getElementById('upload');
+          const errorMessage = document.querySelector('.error-message');
+
+          selectImage.addEventListener("click", function () {
+              inputFile.click();
+          });
+  
+          inputFile.addEventListener("change", function () {
+              const image = this.files[0];
+              if (image && image.size < 2000000) {
+                  const reader = new FileReader();
+                  reader.onload = () => {
+                      const allImg = imgArea.querySelectorAll("img");
+                      allImg.forEach((item) => item.remove());
+                      const imgUrl = reader.result;
+                      const img = document.createElement("img");
+                      img.src = imgUrl;
+                      imgArea.appendChild(img);
+                      imgArea.classList.add("active");
+                      imgArea.dataset.img = image.name;
+  
+                      // Hide error message when image is selected
+                      errorMessage.style.display = 'none';
+                  };
+                  reader.readAsDataURL(image);
+              } else {
+                  alert("Image size more than 2MB");
+              }
+          });
+  
+          uploadButton.addEventListener('click', function() {
+              if (!imgArea.dataset.img) {
+                  // Display error message if no image is selected
+                  errorMessage.style.display = 'block';
+                  return;
+              }
+  
+              swalsuccess();
+          });
+      });
+  
+      // This function shows a SweetAlert message while processing
+      function swalsuccess() {
+        if (!aboutDiv1 || !aboutDiv) {
+          console.error("aboutDiv1 or aboutDiv is not defined");
+          return;
+      }
+          let timerInterval
+          Swal.fire({
               title: 'Loading...',
               text: 'Investigating the plant disease...',
               icon: 'info',
               confirmButtonText: 'Continuar',
-                timer: 4000,
-                timerProgressBar: true,
-                didOpen: () => {
-                    Swal.showLoading()
-                    timerInterval = setInterval(() => {
-                        const content = Swal.getHtmlContainer()
-                        if (content) {
-                            const b = content.querySelector('b')
-                            if (b) {
-                                b.textContent = Swal.getTimerLeft()
-                            }
-                        }
-                    }, 100)
-                },
-                willClose: () => {
-                    clearInterval(timerInterval)
+              timer: 4000,
+              timerProgressBar: true,
+              didOpen: () => {
+                  Swal.showLoading()
+                  timerInterval = setInterval(() => {
+                      const content = Swal.getHtmlContainer()
+                      if (content) {
+                          const b = content.querySelector('b')
+                          if (b) {
+                              b.textContent = Swal.getTimerLeft()
+                          }
+                      }
+                  }, 100)
+              },
+              willClose: () => {
+                  clearInterval(timerInterval)
+              }
+          }).then((result) => {
+              if (result.dismiss === Swal.DismissReason.timer) {
+                console.log("Swal timer completed. Updating div visibility.");
+                aboutDiv1.classList.add("hidden");
+                aboutDiv.classList.remove("hidden");
+                  // Debugging logs
+            console.log("aboutDiv1 classList after adding hidden:", aboutDiv1.classList.toString());
+            console.log("aboutDiv classList after removing hidden:", aboutDiv.classList.toString());
+            console.log("aboutDiv1 current style:", getComputedStyle(aboutDiv1).display);
+            console.log("aboutDiv current style:", getComputedStyle(aboutDiv).display);
                 }
-            }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-            }
-        })
-    }
-
-    document.getElementById('upload').addEventListener('click', swalsuccess);
-
-</script>
-
-
-    <script>
-      const selectImage = document.querySelector(".select-image");
-      const inputFile = document.querySelector("#file");
-      const imgArea = document.querySelector(".img-area");
-
-      selectImage.addEventListener("click", function () {
-        inputFile.click();
-      });
-
-      inputFile.addEventListener("change", function () {
-        const image = this.files[0];
-        if (image.size < 2000000) {
-          const reader = new FileReader();
-          reader.onload = () => {
-            const allImg = imgArea.querySelectorAll("img");
-            allImg.forEach((item) => item.remove());
-            const imgUrl = reader.result;
-            const img = document.createElement("img");
-            img.src = imgUrl;
-            imgArea.appendChild(img);
-            imgArea.classList.add("active");
-            imgArea.dataset.img = image.name;
-          };
-          reader.readAsDataURL(image);
-        } else {
-          alert("Image size more than 2MB");
-        }
-      });
-    </script>
+          })
+      }
+  </script>
+  
     <script src="../js/script.js"></script>
   </body>
 </html>
