@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaatar | HomePage</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/img/icons/zaatar.png">
+    <link rel="stylesheet" href="/static/styles/globals.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/hero.css">
+    <link rel="stylesheet" href="/static/styles/features.css">
+    <link rel="stylesheet" href="/static/styles/product.css">
+    <link rel="stylesheet" href="/static/styles/banner.css">
+    <link rel="stylesheet" href="/static/styles/sm-banner.css">
+    <link rel="stylesheet" href="/static/styles/newsletter.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/responsive.css">
+    <link rel="stylesheet" href="/static/styles/Shop/page-header.css">
+    <link rel="stylesheet" href="/static/styles/Shop/pagination.css">
+    <!-- CSS
+	============================================ -->
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="/static/assets/css/vendor/bootstrap.min.css"> -->
+    
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="/static/assets/css/vendor/font.awesome.min.css">
+    <!-- Linear Icons CSS -->
+    <link rel="stylesheet" href="/static/assets/css/vendor/linearicons.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/swiper-bundle.min.css">
+    <!-- Animation CSS -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/animate.min.css">
+    <!-- Jquery ui CSS -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/jquery-ui.min.css">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/nice-select.min.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="/static/assets/css/plugins/magnific-popup.css">
+
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+
+
+    <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+</head>
+<body> 
+    <section id="header">
+        <a href="index.html"><img id = "icon" src="/static/img/icons/zaatar.png"> </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="{% url 'HomePage' %}" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li id = "blogNav"><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li id = "contact"><a href="contact.html">Contact</a></li>
+                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
+               <!-- Hidden search box -->
+               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
+               <li id="user-og"><a href = "{% url 'SignInPage'%}#loginglob"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+                <li id="bag-og" class="cart-icon-container"><a href="{% url 'cartPage' %}"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
+                <img id="close" class="close-icon" src="/static/img/icons/x.png">
+            </ul>
+        </div>
+        <div id="mobile">
+            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
+            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
+            <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <!-- cart for mobile-->
+            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
+            <img id="bar" class="menu-icon" src="/static/img/icons/menu.png">
+        </div>
+    </section>
+
+<!-- tokhbis starts here -->
+ <!-- Slider/Intro Section Start -->
+ <div class="intro11-slider-wrap section">
+    <div class="intro11-slider swiper-container">
+        <div class="swiper-wrapper">
+            
+            <div class="intro11-section swiper-slide slide-3 slide-bg-1 bg-position">
+                <!-- Intro Content Start -->
+                <div class="intro11-content text-left">
+                    <h3 class="title-slider black-slider-title text-uppercase">Collection</h3>
+                    <h2 class="title"> Herbal Medicines <br> Pesticides</h2>
+                    <a href="shop.html#product2" class="btn flosun-button secondary-btn rounded-0" style="text-decoration: none;">Shop Now</a>
+                </div>
+                <!-- Intro Content End -->
+            </div>
+
+            <div class="intro11-section swiper-slide slide-1 slide-bg-1 bg-position">
+                <!-- Intro Content Start -->
+                <div class="intro11-content text-left">
+                    <h3 class="title-slider black-slider-title text-uppercase">Models</h3>
+                    <h2 class="title">Disease Prediction <br> Fertilizer Prediction</h2>
+                    <a href="models.html" class="btn flosun-button secondary-btn rounded-0" style="text-decoration: none;">Try it Now</a>
+                </div>
+                <!-- Intro Content End -->
+            </div>
+
+            <div class="intro11-section swiper-slide slide-2 slide-bg-1 bg-position">
+                <!-- Intro Content Start -->
+                <div class="intro11-content text-left">
+                    <h3 class="title-slider text-uppercase">Top Plants</h3>
+                    <h2 class="title">2023 Plant Trend</h2>
+                    <!-- <p class="desc-content">Lorem ipsum dolor sit amet, pri autem nemore bonorum te. Autem fierent ullamcorper ius no, nec ea quodsi invenire. </p> -->
+                    <a href="shop.html#product1" class="btn flosun-button secondary-btn theme-color  rounded-0" style="text-decoration: none;">Shop Now</a>
+                </div>
+                <!-- Intro Content End -->
+            </div>
+        </div>
+        <!-- Slider Navigation -->
+        <div class="home1-slider-prev swiper-button-prev main-slider-nav"><i class="lnr lnr-arrow-left"></i></div>
+        <div class="home1-slider-next swiper-button-next main-slider-nav"><i class="lnr lnr-arrow-right"></i></div>
+        <!-- Slider pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+<!-- Slider/Intro Section End -->
+
+<!-- tokhbis ends here -->
+    <section id="feature" class="section-p1">
+        <div class="fe-box">
+            <img src="/static/img/features/freeShiping.png">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/static/img/features/online.png">
+            <h6>Online</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/static/img/features/money.png">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/static/img/features/promotions.png">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/static/img/features/Sell.png">
+            <h6>Happy Sell</h6>
+        </div>
+        <div class="fe-box">
+            <img src="/static/img/features/support.png">
+            <h6>F24/7 Support</h6>
+        </div>
+    </section>
+    <!-- Products Section -->
+    <section id="product1" class="section-p1" style="padding-bottom: 2ex;">
+        <h2>Best Seller</h2>
+
+  {% for plant in plants %}
+        <div class="pro-container">
+            <div class="pro" id = "plant{{plant.id}}">
+                <img class="producto" src="{{plant.image.url}}">
+                <div class="des">
+                    <h5>{{plant.name}}</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>${{plant.price}}</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+        </div>
+
+            {% endfor %}
+
+
+            {% comment %} <div class="pro" id = "plant2">
+                <img class="producto" src="/static/img/products/f2.jpg">
+                <div class="des">
+                    <h5>House Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$30</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant3">
+                <img class="producto" src="/static/img/products/f3.jpg">
+                <div class="des">
+                    <h5>Monstera Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$78</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant4">
+                <img class="producto" src="/static/img/products/f4.jpg">
+                <div class="des">
+                    <h5>Birds-of-Paradise Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$35</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant5">
+                <img class="producto" src="/static/img/products/f5.jpg">
+                <div class="des">
+                    <h5>Decorative Ficus Tree Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$50</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant6">
+                <img class="producto" src="/static/img/products/f6.jpg">
+                <div class="des">
+                    <h5>Stone Lotus Tree Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$30</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant7">
+                <img class="producto" src="/static/img/products/f7.jpg">
+                <div class="des">
+                    <h5>Olive Green Plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$29</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "plant8">
+                <img class="producto" src="/static/img/products/f8.jpg">
+                <div class="des">
+                    <h5>Hanging plant</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$45</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+        </div> {% endcomment %}
+
+    </section>
+     <!-- load more button-->
+     <section id="pagination">
+        <a href="shop.html#product1">Load More</a>
+    </section> 
+
+    <!-- Image Section-->
+    <section id="banner" class="section-m1">
+        <h4></h4>
+        <h2>Up to <span>70% Off</span> - All Plants & Peticides</h2>
+        <a href="shop.html"><button class="normal">Explore More</button></a>
+    </section>
+    <!-- Pesticides Products Section-->
+    <section id="product1" class="section-p1" style="padding-bottom: 2ex;">
+        <h2>Organic Pesticides</h2>
+
+        {% for pest in pesticides %}
+        <div class="pro-container">
+            <div class="pro" id = "pest{{pest.id}}">
+                <img class="producto" src="{{pest.image.url}}">
+                <div class="des">
+                    <h5>{{pest.name}}</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>${{pest.price}}</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+        </div>
+
+            {% endfor %}
+
+
+            {% comment %} <div class="pro" id = "pest2">
+                <img class="producto" src="/static/img/products/n5.jpg">
+                <div class="des">
+                    <h5>Almid Liquid Bio Insecticide</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$69</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest3">
+                <img class="producto" src="/static/img/products/n3.jpg">
+                <div class="des">
+                    <h5>Sunrise Pro-50</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$59</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest4">
+                <img class="producto" src="/static/img/products/n4.jpg">
+                <div class="des">
+                    <h5>Shree Lambada Cyhalothrin Insecticide</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$45</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest5">
+                <img class="producto" src="/static/img/products/n9.jpg">
+                <div class="des">
+                    <h5>Herbicide</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$88</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest6">
+                <img class="producto" src="/static/img/products/n6.jpg">
+                <div class="des">
+                    <h5>Pest Out Liquid</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$35</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest7">
+                <img class="producto" src="/static/img/products/n2.jpg">
+                <div class="des">
+                    <h5>Bed Bug Laundry</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$45</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+            <div class="pro" id = "pest8">
+                <img class="producto" src="/static/img/products/n8.jpg">
+                <div class="des">
+                    <h5>Promix</h5>
+                    <div class="star">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                    </div>
+                    <h4>$25</h4>
+                </div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+            </div>
+        </div> {% endcomment %}
+        
+
+    </section>
+
+      
+        <!-- load more button-->
+        <section id="pagination">
+        <a href="shop.html#product2">Load More</a>
+        </section> 
+
+    <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+            <!-- <h4>Plant Healer</h4> -->
+            <h2>Upload a Picture </h2>
+            <h2>and know the Cure</h2>
+
+            <span>The best model for plant disease detection and pesticide treatment</span>
+            <a href="models.html"> <button class="white">Try it</button></a>
+        </div>
+        <div class="banner-box banner-box2">
+            <!-- <h4>Soil Type</h4> -->
+            <h2>Fertilizer Predictor</h2>
+            <h2> Input Crop Environment</h2>
+            <span>Input Environmental Parameters to Determine appropriate </span>
+            <span> Fertilizer.</span>
+            <a href="models.html"> <button class="white">Try it</button></a>
+        </div>
+
+    </section>
+
+    <!-- Newsletter-->
+    <section id="newsletter" class="section-p1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+  <!-- Footer -->
+  <footer class="section-p1">
+    <div class="col">
+        <h4><b>About</b></h4>
+        <a href="about.html">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="col">
+        <h4><b>My Account</b></h4>
+        <a href="login.html">Sign In</a>
+        <a href="cart.html">View Cart</a>
+        <a href="shop.html">Shop</a>
+        <a href="models.html">Detect My Plant Disease</a>
+        <a href="models.html">Detect Plants For Soil Type</a>
+    </div>
+
+    <div class="col">
+        <h4><b>Contact</b></h4>
+        <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
+        <p><strong>Phone:</strong> +(961) 70 222 365 </p>
+        <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+        <div class="follow">
+            <h4><strong> Follow Us</strong></h4>
+            <div class="icon">
+                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="/static/img/icons/facebook.png"> </a>
+                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="/static/img/icons/twitter.png"></a>
+                <a href = "https://www.instagram.com/"><img class="footer-icon" src="/static/img/icons/instagram.png"></a>
+                <a href = "https://www.youtube.com/"><img class="footer-icon" src="/static/img/icons/youtube.png"></a>
+                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="/static/img/icons/pinterest.png"></a>
+            </div>
+        </div>
+    </div>
+  
+</footer>
+
+    <!-- Main script -->
+     <script src="/static/js/script.js"></script> 
+
+    <!-- JS For SlideShow in assets
+    ============================================ -->
+
+    <!-- jQuery JS -->
+    <script src="/static/assets/js/vendor/jquery-3.6.0.min.js"></script>
+    <!-- jQuery Migrate JS -->
+    <script src="/static/assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
+    <!-- Modernizer JS -->
+    <script src="/static/assets/js/vendor/modernizr-3.7.1.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/static/assets/js/vendor/bootstrap.bundle.min.js"></script>
+
+    <!-- Swiper Slider JS -->
+    <script src="/static/assets/js/plugins/swiper-bundle.min.js"></script>
+    <!-- nice select JS -->
+    <script src="/static/assets/js/plugins/nice-select.min.js"></script>
+    <!-- Ajaxchimpt js -->
+    <script src="/static/assets/js/plugins/jquery.ajaxchimp.min.js"></script>
+    <!-- Jquery Ui js -->
+    <script src="/static/assets/js/plugins/jquery-ui.min.js"></script>
+    <!-- Jquery Countdown js -->
+    <script src="/static/assets/js/plugins/jquery.countdown.min.js"></script>
+    <!-- jquery magnific popup js -->
+    <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
+
+    <!-- Main JS -->
+    <script src="/static/assets/js/main.js"></script>
+
+</body>
+
+</html>
