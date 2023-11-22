@@ -4,6 +4,8 @@ function addToCart(productID) {
   // Retrieve existing cart from localStorage
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+  console.log(cart);
+
   // Find the product element
   const productElement = document.getElementById(productID);
   const imgSrc = productElement.querySelector('.producto').src;

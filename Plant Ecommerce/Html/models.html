@@ -20,17 +20,16 @@
     <link rel="stylesheet" href="../styles/responsive.css" />
     <link rel="stylesheet" href="../styles/features.css" />
     <link rel="stylesheet" href="../styles/models/models.css" />
-
     <link rel="stylesheet" href="../styles/Shop/pagination.css" />
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="../assets/css/vendor/font.awesome.min.css" />
 
-
-       <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- For Loading window -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   </head>
   <body>
@@ -102,21 +101,23 @@
     </section>
 
     <section id="page-header" class="about-header">
-      <h2>#KnowUs</h2>
-      <p>Get to know us and our plants</p>
+      <h2>#Our Predictions</h2>
+      <p>Try our models</p>
     </section>
 
-    <section id="about-head" style="padding: 40px 80px">
+    <!------------------------- FOr PLant Disease -------------------------->
+
+    <section id="about-head">
+
       <div id="aboutp" class="aboutDiv">
         <div>
-          <center><h3>What is my plant disease ?</h3></center>
-
+          <center><h3>What is my plant disease?</h3></center>
           <div class="upload">
             <div class="container">
               <input type="file" id="file" accept="image/*" hidden />
               <div class="img-area" data-img="">
-                <p style="font-size: xx-large; color: green">
-                  <i class="fa-solid fa-cloud-arrow-up"></i>
+                <p class="uploadIcon">
+                    <i class="fa fa-cloud-upload"></i>
                 </p>
                 <h3 style="margin: 0px">Upload Image</h3>
                 <p style="margin-top: 1px">
@@ -124,31 +125,122 @@
                 </p>
               </div>
               <button class="select-image">Select Image</button>
-              <button class="upload-image" id = "upload" >Upload Image</button>
-              <p class="error-message" style="color: red; display: none;">Please select an image first</p>
-
+              <button class="upload-image" id="upload">Upload Image</button>
+              <p class="error-message" style="color: red; display: none">
+                Please select an image first.
+              </p>
             </div>
           </div>
 
-          <br /><br/>
+          <br /><br />
         </div>
       </div>
 
-      <div class="aboutDiv1" style="margin: auto;"><img src="../img/banner/b10.jpg"></div>  
+      <div class="aboutDiv1" style="margin: auto; display:block"><img src="../img/banner/b4.jpg"></div>  
       
-      <div class="aboutDiv hidden" style="margin: auto;">
+      <div class="aboutDiv2" style="display:none">
         <center><p>Here is the possible disease of your plant !</p></center>
-        <center><span> Powdery mildew </span></center>
+        <center><span><b> Powdery mildew </b></span></center>
         <center><p>Check Out our Herbal Medicines</p></center>
         <center>
           <section id="pagination">
             <a href="shop.html#product2">Check Now</a>
           </section>
         </center>
-  
-
       </div>
     </section>
+
+     
+    <center> <hr> </center>
+
+     <!------------------------- For Fertilizer Type  -------------------------->
+
+     <section id="about-head" >
+
+        <div id="aboutp" class="aboutDiv">
+          <div>
+            <center><h3>What Fertilizer should I use for Plants?</h3></center>
+            <div class="upload">
+
+                <div class="container2">
+                    <p>
+                    <label> Temperature </label>
+                    <input type="number" id="Temp" min="" max="" required placeholder="30 °C">
+                    </p>
+                    
+                    <p>
+                    <label> Moisture </label>
+                    <input type="number" id="Moisture" min="" max="" required placeholder="">
+                    </p>
+                    
+                    <p>
+                    <label> Humidity </label>
+                    <input type="number" id="Humidity" min="" max="" required placeholder="">
+                </p>
+
+                <p>
+                    <label> Soil Type </label>
+                    <select id="soil"> 
+                        <option value="Red" selected> Red </option>
+                        <option value="Sandy"> Sandy </option>
+                    </select>
+                </p>
+
+                <p>
+                    <label> Crop Type </label>
+                    <select id="Crop">
+                        <option value="Maize" selected> Maize </option>
+                        <option value="Coffee"> Coffee </option>
+                    </select>
+                </p>
+
+                <p>
+                    <label> Nitrogen amount</label>
+                    <input type="number" id="N" min="" max="" required placeholder="">
+                    </p>
+
+                    <p>
+                        <label> Phosphorus amount</label>
+                        <input type="number" id="P" min="" max="" required placeholder="">
+                        </p>
+
+                        <p>
+                            <label> Potassium amount</label>
+                            <input type="number" id="K" min="" max="" required placeholder="">
+                            </p>
+
+                
+                  
+                  <center><button class="upload-image" id="upload2"> Submit </button></center>
+                
+                </div>
+
+              </div>
+    
+             
+            </div>
+          </div>
+            
+  
+        <div class="aboutDiv1" style="margin: auto; display:block" id = "aboutDiv3"><img src="../img/banner/b7.jpg"></div>  
+        
+        <div class="aboutDiv2" style="display:none" id = "aboutDiv4">
+          <center><p>Here is the possible Fertilizers for your plant !</p></center>
+          <center><span><b> Urea </b></span></center>
+          <center><p>Check Out our Pesticides</p></center>
+          <center>
+            <section id="pagination">
+              <a href="shop.html#product2">Check Now</a>
+            </section>
+          </center>
+        </div>
+      </section>
+  
+
+
+
+
+     <!--------------------------- Newsletter ---------------------------------->
 
     <section id="newsletter" class="section-p1">
       <div class="newstext">
@@ -163,7 +255,7 @@
         <button class="normal">Sign Up</button>
       </div>
     </section>
-    <!-- Footer -->
+    <!-------------------------------- Footer ----------------------------------->
     <footer class="section-p1">
       <div class="col">
         <h4><b>About</b></h4>
@@ -211,100 +303,8 @@
       </div>
     </footer>
 
-    <script>
-      let aboutDiv1;
-      let aboutDiv;
-      document.addEventListener("DOMContentLoaded", function() {
-          aboutDiv1 = document.querySelector(".aboutDiv1");
-          aboutDiv = document.querySelector(".aboutDiv");
-          const selectImage = document.querySelector(".select-image");
-          const inputFile = document.querySelector("#file");
-          const imgArea = document.querySelector(".img-area");
-          const uploadButton = document.getElementById('upload');
-          const errorMessage = document.querySelector('.error-message');
-
-          selectImage.addEventListener("click", function () {
-              inputFile.click();
-          });
-  
-          inputFile.addEventListener("change", function () {
-              const image = this.files[0];
-              if (image && image.size < 2000000) {
-                  const reader = new FileReader();
-                  reader.onload = () => {
-                      const allImg = imgArea.querySelectorAll("img");
-                      allImg.forEach((item) => item.remove());
-                      const imgUrl = reader.result;
-                      const img = document.createElement("img");
-                      img.src = imgUrl;
-                      imgArea.appendChild(img);
-                      imgArea.classList.add("active");
-                      imgArea.dataset.img = image.name;
-  
-                      // Hide error message when image is selected
-                      errorMessage.style.display = 'none';
-                  };
-                  reader.readAsDataURL(image);
-              } else {
-                  alert("Image size more than 2MB");
-              }
-          });
-  
-          uploadButton.addEventListener('click', function() {
-              if (!imgArea.dataset.img) {
-                  // Display error message if no image is selected
-                  errorMessage.style.display = 'block';
-                  return;
-              }
-  
-              swalsuccess();
-          });
-      });
-  
-      // This function shows a SweetAlert message while processing
-      function swalsuccess() {
-        if (!aboutDiv1 || !aboutDiv) {
-          console.error("aboutDiv1 or aboutDiv is not defined");
-          return;
-      }
-          let timerInterval
-          Swal.fire({
-              title: 'Loading...',
-              text: 'Investigating the plant disease...',
-              icon: 'info',
-              confirmButtonText: 'Continuar',
-              timer: 4000,
-              timerProgressBar: true,
-              didOpen: () => {
-                  Swal.showLoading()
-                  timerInterval = setInterval(() => {
-                      const content = Swal.getHtmlContainer()
-                      if (content) {
-                          const b = content.querySelector('b')
-                          if (b) {
-                              b.textContent = Swal.getTimerLeft()
-                          }
-                      }
-                  }, 100)
-              },
-              willClose: () => {
-                  clearInterval(timerInterval)
-              }
-          }).then((result) => {
-              if (result.dismiss === Swal.DismissReason.timer) {
-                console.log("Swal timer completed. Updating div visibility.");
-                aboutDiv1.classList.add("hidden");
-                aboutDiv.classList.remove("hidden");
-                  // Debugging logs
-            console.log("aboutDiv1 classList after adding hidden:", aboutDiv1.classList.toString());
-            console.log("aboutDiv classList after removing hidden:", aboutDiv.classList.toString());
-            console.log("aboutDiv1 current style:", getComputedStyle(aboutDiv1).display);
-            console.log("aboutDiv current style:", getComputedStyle(aboutDiv).display);
-                }
-          })
-      }
-  </script>
-  
     <script src="../js/script.js"></script>
+    <script src="../js/models.js"></script>
+
   </body>
 </html>

@@ -412,17 +412,17 @@
 }
 
 .slide-1 {
-  background-image: url("../images/slider/img3.jpg");
+  background-image: url("../images/slider/img2.jpg");
   background-color: green;
 }
 
 .slide-2 {
-  background-image: url("../images/slider/img1.jpg");
+  background-image: url("../images/slider/img3.jpg");
   background-color: green;
 }
 
 .slide-3 {
-  background-image: url("../images/slider/img2.jpg");
+  background-image: url("../images/slider/img1.jpg");
   background-color: green;
 }
 
