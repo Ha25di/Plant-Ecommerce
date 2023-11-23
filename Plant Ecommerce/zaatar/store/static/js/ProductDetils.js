@@ -244,7 +244,7 @@ function handleProductClick(productId) {
     localStorage.setItem('currentProduct', JSON.stringify(productDetails));
   
     // Redirect to the sproduct.html page
-    window.location.href = 'sproduct.html';
+    window.location.href = productDetailUrl;
 }
 
 // Function to initialize click listeners for all products

@@ -69,7 +69,7 @@
         <div id="mobile">
             <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
             <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
-            <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+            <a href = "{% url 'SignInPage'%}" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
             <!-- cart for mobile-->
             <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
             <img id="bar" class="menu-icon" src="/static/img/icons/menu.png">
@@ -87,7 +87,7 @@
                 <div class="intro11-content text-left">
                     <h3 class="title-slider black-slider-title text-uppercase">Collection</h3>
                     <h2 class="title"> Herbal Medicines <br> Pesticides</h2>
-                    <a href="shop.html#product2" class="btn flosun-button secondary-btn rounded-0" style="text-decoration: none;">Shop Now</a>
+                    <a href="{% url 'ShopPage' %}" class="btn flosun-button secondary-btn rounded-0" style="text-decoration: none;">Shop Now</a>
                 </div>
                 <!-- Intro Content End -->
             </div>
@@ -108,7 +108,7 @@
                     <h3 class="title-slider text-uppercase">Top Plants</h3>
                     <h2 class="title">2023 Plant Trend</h2>
                     <!-- <p class="desc-content">Lorem ipsum dolor sit amet, pri autem nemore bonorum te. Autem fierent ullamcorper ius no, nec ea quodsi invenire. </p> -->
-                    <a href="shop.html#product1" class="btn flosun-button secondary-btn theme-color  rounded-0" style="text-decoration: none;">Shop Now</a>
+                    <a href="{% url 'ShopPage' %}#product1" class="btn flosun-button secondary-btn theme-color  rounded-0" style="text-decoration: none;">Shop Now</a>
                 </div>
                 <!-- Intro Content End -->
             </div>
@@ -152,9 +152,9 @@
     <!-- Products Section -->
     <section id="product1" class="section-p1" style="padding-bottom: 2ex;">
         <h2>Best Seller</h2>
-
-  {% for plant in plants %}
         <div class="pro-container">
+  {% for plant in plants %}
+       
             <div class="pro" id = "plant{{plant.id}}">
                 <img class="producto" src="{{plant.image.url}}">
                 <div class="des">
@@ -170,136 +170,29 @@
                 </div>
                 <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
             </div>
-        </div>
+        
 
             {% endfor %}
-
-
-            {% comment %} <div class="pro" id = "plant2">
-                <img class="producto" src="/static/img/products/f2.jpg">
-                <div class="des">
-                    <h5>House Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant3">
-                <img class="producto" src="/static/img/products/f3.jpg">
-                <div class="des">
-                    <h5>Monstera Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant4">
-                <img class="producto" src="/static/img/products/f4.jpg">
-                <div class="des">
-                    <h5>Birds-of-Paradise Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$35</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant5">
-                <img class="producto" src="/static/img/products/f5.jpg">
-                <div class="des">
-                    <h5>Decorative Ficus Tree Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$50</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant6">
-                <img class="producto" src="/static/img/products/f6.jpg">
-                <div class="des">
-                    <h5>Stone Lotus Tree Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant7">
-                <img class="producto" src="/static/img/products/f7.jpg">
-                <div class="des">
-                    <h5>Olive Green Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$29</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant8">
-                <img class="producto" src="/static/img/products/f8.jpg">
-                <div class="des">
-                    <h5>Hanging plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                        <img class="star-icon" src="/static/img/icons/star.png">
-                    </div>
-                    <h4>$45</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
-            </div>
-        </div> {% endcomment %}
+        </div>
 
     </section>
      <!-- load more button-->
      <section id="pagination">
-        <a href="shop.html#product1">Load More</a>
+        <a href="{% url 'ShopPage' %}#product1">Load More</a>
     </section> 
 
     <!-- Image Section-->
     <section id="banner" class="section-m1">
         <h4></h4>
         <h2>Up to <span>70% Off</span> - All Plants & Peticides</h2>
-        <a href="shop.html"><button class="normal">Explore More</button></a>
+        <a href="{% url 'ShopPage' %}"><button class="normal">Explore More</button></a>
     </section>
     <!-- Pesticides Products Section-->
     <section id="product1" class="section-p1" style="padding-bottom: 2ex;">
         <h2>Organic Pesticides</h2>
+        <div class="pro-container">
 
         {% for pest in pesticides %}
-        <div class="pro-container">
             <div class="pro" id = "pest{{pest.id}}">
                 <img class="producto" src="{{pest.image.url}}">
                 <div class="des">
@@ -315,9 +208,9 @@
                 </div>
                 <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
             </div>
-        </div>
 
             {% endfor %}
+        </div>
 
 
             {% comment %} <div class="pro" id = "pest2">
@@ -433,7 +326,7 @@
       
         <!-- load more button-->
         <section id="pagination">
-        <a href="shop.html#product2">Load More</a>
+        <a href="{% url 'ShopPage' %}#product2">Load More</a>
         </section> 
 
     <section id="sm-banner" class="section-p1">

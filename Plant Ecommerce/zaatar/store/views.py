@@ -65,3 +65,11 @@ def SignOut(request):
     logout(request)
     # Redirect to the home page or login page after logout
     return redirect('HomePage')  
+
+def ShopPage(request):
+    Plants = Plant.objects.all()
+    Pesticides = Pesticide.objects.all()
+    return render(request, 'shop.html', {'plants': Plants, 'pesticides': Pesticides})
+ 
+def ProductDetail(request):
+    return render(request,'sproduct.html')  

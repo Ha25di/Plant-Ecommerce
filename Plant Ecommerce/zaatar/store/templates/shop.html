@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaatar | Shop</title>
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="../img/icons/zaatar.png">
-    <link rel="stylesheet" href="../styles/globals.css">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/hero.css">
-    <link rel="stylesheet" href="../styles/product.css">
-    <link rel="stylesheet" href="../styles/newsletter.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="../styles/Shop/page-header.css">
-    <link rel="stylesheet" href="../styles/Shop/pagination.css">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/img/icons/zaatar.png">
+    <link rel="stylesheet" href="/static/styles/globals.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/hero.css">
+    <link rel="stylesheet" href="/static/styles/product.css">
+    <link rel="stylesheet" href="/static/styles/newsletter.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/responsive.css">
+    <link rel="stylesheet" href="/static/styles/Shop/page-header.css">
+    <link rel="stylesheet" href="/static/styles/Shop/pagination.css">
   
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="../assets/css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="/static/assets/css/vendor/font.awesome.min.css">
      <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -26,7 +26,7 @@
 </head>
 <body>
     <section id="header">
-        <a href="index.html"><img id = "icon" src="../img/icons/zaatar.png"> </a>
+        <a href="index.html"><img id = "icon" src="/static/img/icons/zaatar.png"> </a>
         <div>
             <ul id="navbar">
                 <li><a href="index.html">Home</a></li>
@@ -38,8 +38,8 @@
                <!-- Hidden search box -->
                <input type="text" id="search-input" placeholder="Search..." style="display: none;">
                <li id="user-og"><a href = "login.html#loginglob"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
-                <li id="bag-og" class="cart-icon-container"><a href="cart.html"><img class="bag-icon" src="../img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
-                <img id="close" class="close-icon" src="../img/icons/x.png">
+                <li id="bag-og" class="cart-icon-container"><a href="cart.html"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
+                <img id="close" class="close-icon" src="/static/img/icons/x.png">
             </ul>
         </div>
         <div id="mobile">
@@ -47,8 +47,8 @@
             <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
             <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
             <!-- cart for mobile-->
-            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="../img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
-            <img id="bar" class="menu-icon" src="../img/icons/menu.png">
+            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
+            <img id="bar" class="menu-icon" src="/static/img/icons/menu.png">
         </div>
     </section>
 
@@ -60,127 +60,28 @@
     <section id="product1" class="section-p1">
         <h2>Our Plants</h2>
         <div class="pro-container">
-            <div class="pro" id = "plant1" >
-                <img class="producto" src="../img/products/f1.jpg" >
+        {% for plant in plants %}
+        
+            <div class="pro" id = "plant{{plant.id}}">
+                <img class="producto" src="{{plant.image.url}}">
                 <div class="des">
-                    <h5>Banana Plant</h5>
+                    <h5>{{plant.name}}</h5>
                     <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
+                        <img class="star-icon" src="/static/img/icons/star.png">
                     </div>
-                    <h4>$20</h4>
+                    <h4>${{plant.price}}</h4>
                 </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
             </div>
-            <div class="pro" id = "plant2">
-                <img class="producto" src="../img/products/f2.jpg" >
-                <div class="des">
-                    <h5>House Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant3">
-                <img class="producto" src="../img/products/f3.jpg">
-                <div class="des">
-                    <h5>Monstera Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$78</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant4">
-                <img class="producto" src="../img/products/f4.jpg">
-                <div class="des">
-                    <h5>Birds-of-Paradise Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$35</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant5">
-                <img class="producto" src="../img/products/f5.jpg">
-                <div class="des">
-                    <h5>Decorative Ficus Tree Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$50</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant6">
-                <img class="producto" src="../img/products/f6.jpg">
-                <div class="des">
-                    <h5>Stone Lotus Tree Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$30</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant7">
-                <img class="producto" src="../img/products/f7.jpg">
-                <div class="des">
-                    <h5>Olive Green Plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$29</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
-            <div class="pro" id = "plant8">
-                <img class="producto" src="../img/products/f8.jpg">
-                <div class="des">
-                    <h5>Hanging plant</h5>
-                    <div class="star">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                        <img class="star-icon" src="../img/icons/star.png">
-                    </div>
-                    <h4>$45</h4>
-                </div>
-                <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
-            </div>
+        
+
+            {% endfor %}
         </div>
+        
     </section>
 
 
@@ -189,133 +90,155 @@
     <span id = "product2"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</span>
     <h2>Organic Pesticides</h2>
     <div class="pro-container">
+
+    {% for pest in pesticides %}
+        <div class="pro" id = "pest{{pest.id}}">
+            <img class="producto" src="{{pest.image.url}}">
+            <div class="des">
+                <h5>{{pest.name}}</h5>
+                <div class="star">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                </div>
+                <h4>${{pest.price}}</h4>
+            </div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+        </div>
+    
+
+        {% endfor %}
+    </div>
+    {% comment %} <div class="pro-container">
         <div class="pro" id = "pest1">
-            <img class="producto" src="../img/products/n1.jpg">
+            <img class="producto" src="/static/img/products/n1.jpg">
             <div class="des">
                 <h5>Bloom Buddy Organic Pesticide</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$78</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest2">
-            <img class="producto" src="../img/products/n5.jpg">
+            <img class="producto" src="/static/img/products/n5.jpg">
             <div class="des">
                 <h5>Almid Liquid Bio Insecticide</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$69</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest3">
-            <img class="producto" src="../img/products/n3.jpg">
+            <img class="producto" src="/static/img/products/n3.jpg">
             <div class="des">
                 <h5>Sunrise Pro-50</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$59</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest4">
-            <img class="producto" src="../img/products/n4.jpg">
+            <img class="producto" src="/static/img/products/n4.jpg">
             <div class="des">
                 <h5>Shree Lambada Cyhalothrin Insecticide</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$45</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest5">
-            <img class="producto" src="../img/products/n9.jpg">
+            <img class="producto" src="/static/img/products/n9.jpg">
             <div class="des">
                 <h5>Herbicide</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$88</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest6">
-            <img class="producto" src="../img/products/n6.jpg">
+            <img class="producto" src="/static/img/products/n6.jpg">
             <div class="des">
                 <h5>Pest Out Liquid</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$35</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest7">
-            <img class="producto" src="../img/products/n2.jpg">
+            <img class="producto" src="/static/img/products/n2.jpg">
             <div class="des">
                 <h5>Bed Bug Laundry</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$45</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
         <div class="pro" id = "pest8">
-            <img class="producto" src="../img/products/n8.jpg">
+            <img class="producto" src="/static/img/products/n8.jpg">
             <div class="des">
                 <h5>Promix</h5>
                 <div class="star">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
-                    <img class="star-icon" src="../img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
                 </div>
                 <h4>$25</h4>
             </div>
-            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="../img/icons/cart.png"></a></div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
         </div>
-    </div>
+    </div> {% endcomment %}
 </section>
 
     <!-- <section id="pagination" class="section-p1">
         <a href="#">1</a>
         <a href="#">2</a>
-        <img src="../img/icons/right-arrow.png" class="arrow-icon">
+        <img src="/static/img/icons/right-arrow.png" class="arrow-icon">
     </section> -->
 
      <section id="newsletter" class="section-p1">
@@ -356,11 +279,11 @@
         <div class="follow">
             <h4><strong> Follow Us</strong></h4>
             <div class="icon">
-                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="../img/icons/facebook.png"> </a>
-                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="../img/icons/twitter.png"></a>
-                <a href = "https://www.instagram.com/"><img class="footer-icon" src="../img/icons/instagram.png"></a>
-                <a href = "https://www.youtube.com/"><img class="footer-icon" src="../img/icons/youtube.png"></a>
-                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="../img/icons/pinterest.png"></a>
+                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="/static/img/icons/facebook.png"> </a>
+                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="/static/img/icons/twitter.png"></a>
+                <a href = "https://www.instagram.com/"><img class="footer-icon" src="/static/img/icons/instagram.png"></a>
+                <a href = "https://www.youtube.com/"><img class="footer-icon" src="/static/img/icons/youtube.png"></a>
+                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="/static/img/icons/pinterest.png"></a>
             </div>
         </div>
     </div>
@@ -368,7 +291,11 @@
 </footer>
 
     <!-- <script src="script.js"></script> -->
-     <script src="../js/ProductDetils.js"></script>
+     <script type="text/javascript">
+        var productDetailUrl = "{% url 'ProductDetail' %}";
+    </script>
+    
+     <script src="/static/js/ProductDetils.js"></script>
 
 </body>
 </html>

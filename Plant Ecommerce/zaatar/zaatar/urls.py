@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from store.views import HomePage, SignInPage, cartPage, SignOut
+from store.views import HomePage, SignInPage, cartPage, SignOut, ShopPage, ProductDetail
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -28,6 +28,9 @@ urlpatterns = [
     path('SignInPage/', SignInPage, name='SignInPage'),
     path('cartPage/', cartPage, name='cartPage'),
     path('SignOut/', SignOut, name='SignOut'),
+    path('Shop/', ShopPage, name='ShopPage'),
+    path('ProductDetail/', ProductDetail, name='ProductDetail'),
+
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
