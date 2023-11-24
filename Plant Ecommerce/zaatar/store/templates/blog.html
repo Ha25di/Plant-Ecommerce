@@ -5,48 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaatar | Blog</title>
-    <link rel="icon" type="image/x-icon" sizes="16x16" href="../img/icons/zaatar.png">
-    <link rel="stylesheet" href="../styles/globals.css">
-    <link rel="stylesheet" href="../styles/header.css">
-    <link rel="stylesheet" href="../styles/hero.css">
-    <link rel="stylesheet" href="../styles/product.css">
-    <link rel="stylesheet" href="../styles/newsletter.css">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <link rel="stylesheet" href="../styles/responsive.css">
-    <link rel="stylesheet" href="../styles/Shop/page-header.css">
-    <link rel="stylesheet" href="../styles/Shop/pagination.css">
-    <link rel="stylesheet" href="../styles/Blog/blog.css">
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/img/icons/zaatar.png">
+    <link rel="stylesheet" href="/static/styles/globals.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/hero.css">
+    <link rel="stylesheet" href="/static/styles/product.css">
+    <link rel="stylesheet" href="/static/styles/newsletter.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/responsive.css">
+    <link rel="stylesheet" href="/static/styles/Shop/page-header.css">
+    <link rel="stylesheet" href="/static/styles/Shop/pagination.css">
+    <link rel="stylesheet" href="/static/styles/Blog/blog.css">
 
     <!-- Font Awesome CSS -->
-    <link rel="stylesheet" href="../assets/css/vendor/font.awesome.min.css">
+    <link rel="stylesheet" href="/static/assets/css/vendor/font.awesome.min.css">
 </head>
 <body>
-    <section id="header">
-        <a href="index.html"><img id = "icon" src="../img/icons/zaatar.png"> </a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li id = "blogNav"><a href="blog.html"class="active">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li id = "contact"><a href="contact.html">Contact</a></li>
-                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
-               <!-- Hidden search box -->
-               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
-               <li id="user-og"><a href = "login.html#loginglob"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
-                <li id="bag-og" class="cart-icon-container"><a href="cart.html"><img class="bag-icon" src="../img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
-                <img id="close" class="close-icon" src="../img/icons/x.png">
-            </ul>
-        </div>
-        <div id="mobile">
-            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
-            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
-            <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-            <!-- cart for mobile-->
-            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="../img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
-            <img id="bar" class="menu-icon" src="../img/icons/menu.png">
-        </div>
-    </section>
+    
+    {% include "nav.html" %} 
 
     <section id="page-header" class="blog-header">
         <h2>#readmore</h2>
@@ -55,7 +31,7 @@
     <section id="blog">
         <div class="blog-box">
             <div class="blog-img">
-                <img src="../img/banner/b19.jpg">
+                <img src="/static/img/banner/b19.jpg">
             </div>
             <div class="blog-details">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
@@ -67,7 +43,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="../img/banner/b2.jpg">
+                <img src="/static/img/banner/b2.jpg">
             </div>
             <div class="blog-details">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
@@ -79,7 +55,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="../img/banner/b10.jpg">
+                <img src="/static/img/banner/b10.jpg">
             </div>
             <div class="blog-details">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
@@ -91,7 +67,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="../img/banner/b17.jpg">
+                <img src="/static/img/banner/b17.jpg">
             </div>
             <div class="blog-details">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
@@ -103,7 +79,7 @@
         </div>
         <div class="blog-box">
             <div class="blog-img">
-                <img src="../img/banner/b16.jpg">
+                <img src="/static/img/banner/b16.jpg">
             </div>
             <div class="blog-details">
                 <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
@@ -164,18 +140,18 @@
         <div class="follow">
             <h4><strong> Follow Us</strong></h4>
             <div class="icon">
-                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="../img/icons/facebook.png"> </a>
-                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="../img/icons/twitter.png"></a>
-                <a href = "https://www.instagram.com/"><img class="footer-icon" src="../img/icons/instagram.png"></a>
-                <a href = "https://www.youtube.com/"><img class="footer-icon" src="../img/icons/youtube.png"></a>
-                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="../img/icons/pinterest.png"></a>
+                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="/static/img/icons/facebook.png"> </a>
+                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="/static/img/icons/twitter.png"></a>
+                <a href = "https://www.instagram.com/"><img class="footer-icon" src="/static/img/icons/instagram.png"></a>
+                <a href = "https://www.youtube.com/"><img class="footer-icon" src="/static/img/icons/youtube.png"></a>
+                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="/static/img/icons/pinterest.png"></a>
             </div>
         </div>
     </div>
   
 </footer>
 
-    <script src="../js/blog.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="/static/js/blog.js"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

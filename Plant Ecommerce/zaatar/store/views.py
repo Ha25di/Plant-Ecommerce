@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Plant, Pesticide
+from .models import Plant, Pesticide, Coupon
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -11,10 +11,11 @@ from django.contrib import messages
 def HomePage(request):
     Plants = Plant.objects.all()[0:8]
     Pesticides = Pesticide.objects.all()[0:8]
-    return render(request, 'index.html', {'plants': Plants, 'pesticides': Pesticides})
+    return render(request, 'index.html', {'plants': Plants, 'pesticides': Pesticides, 'current_page': 'home'})
 
 def cartPage(request):
-     return render(request, 'cart.html')
+    coupons = Coupon.objects.all()
+    return render(request, 'cart.html', {'current_page': 'cart', 'coupons': coupons})
  
  
 def SignInPage(request):
@@ -57,7 +58,7 @@ def SignInPage(request):
                 messages.error(request, 'Invalid username or password')
 
     # Render the login page for GET requests or if neither form has been submitted
-    return render(request, 'login.html')
+    return render(request, 'login.html', {'current_page': 'login'})
 
 
 
@@ -69,7 +70,25 @@ def SignOut(request):
 def ShopPage(request):
     Plants = Plant.objects.all()
     Pesticides = Pesticide.objects.all()
-    return render(request, 'shop.html', {'plants': Plants, 'pesticides': Pesticides})
+    return render(request, 'shop.html', {'plants': Plants, 'pesticides': Pesticides, 'current_page': 'shop'})
  
 def ProductDetail(request):
     return render(request,'sproduct.html')  
+
+def navPage(request):
+    return render(request, 'nav.html')
+
+def BlogPage(request):
+    return render(request, 'blog.html', {'current_page': 'blog'})
+
+def AboutPage(request):
+    return render(request, 'about.html', {'current_page': 'about'})
+
+def ContactPage(request):
+    return render(request, 'contact.html', {'current_page': 'contact'})
+
+def CheckOutPage(request):
+    return render(request, 'checkout.html')
+
+def ModelsPage(request):
+    return render(request, 'models.html')

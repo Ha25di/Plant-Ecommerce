@@ -25,34 +25,9 @@
 </head>
 
 <body>
-    <section id="header">
-        <a href="index.html"><img id = "icon" src="/static/img/icons/zaatar.png"> </a>
-        <div>
-            <ul id="navbar">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="shop.html" class="active">Shop</a></li>
-                <li id = "blogNav"><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li id = "contact"><a href="contact.html">Contact</a></li>
-                <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
-               <!-- Hidden search box -->
-               <input type="text" id="search-input" placeholder="Search..." style="display: none;">
-               <li id="user-og"><a href = "login.html#loginglob"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
-                <li id="bag-og" class="cart-icon-container"><a href="cart.html"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
-                <img id="close" class="close-icon" src="/static/img/icons/x.png">
-            </ul>
-        </div>
-        <div id="mobile">
-            <a id="mobile-search-og" style="margin-right: 2.5ex;"> <i class="fa fa-search" aria-hidden="true"></i></a>
-            <input type="text" id="mobile-search-input" placeholder="Search..." style="display: none;">
-            <a href = "login.html#loginglob" style="margin-right: 2.5ex; color: black;"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-            <!-- cart for mobile-->
-            <a href="cart.html" id="mobile-bag-og" class="mobile-cart-icon-container"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="mobile-cart-counter" id="mobile-cartCounter">0</span></a>
-            <img id="bar" class="menu-icon" src="/static/img/icons/menu.png">
-        </div>
-    </section>
+    {% include "nav.html" %} 
 
-    <section class="leftArrow"> <a href="shop.html"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a></section>
+    <section class="leftArrow"> <a href="{% url 'ShopPage'%}"><i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i></a></section>
     
     <section id="prodetails" class="section-p1 background">
         <div class="single-pro-image">
@@ -118,6 +93,11 @@
     </div>
   
 </footer>
+
+   
+   {% comment %} <script type="text/javascript">
+    var userId = {{ user_id }};  
+    </script>  {% endcomment %}
 
     <script src="/static/js/ProductDetils.js"></script>
 
