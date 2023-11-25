@@ -202,6 +202,8 @@ function updateCartTotal() {
   // Format the total to two decimal places and prepend with a dollar sign
   var formattedTotal = '$' + total.toFixed(2);
 
+
+
   // Update the 'td' with the id 'cartTotal' with the calculated total
   document.getElementById('cartTotal').textContent = formattedTotal;
   document.getElementById('Total').textContent = formattedTotal;
@@ -254,7 +256,11 @@ function applyCoupon() {
   let total = cartTotal - discount;
   
   // Update the total element
-  totalElement.textContent = `$ ${total.toFixed(2)}`;
+  let formattedTotal = `$${total.toFixed(2)}`;
+totalElement.textContent = formattedTotal;
+
+// Assuming 'userId' is already defined and accessible
+localStorage.setItem('total' + userId, formattedTotal);
 }
 /******************************* ************************* ****************************** */
 
