@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from store.views import HomePage, SignInPage, cartPage, SignOut, ShopPage, ProductDetail
+from store.views import HomePage, SignInPage, cartPage, SignOut, ShopPage, ProductDetail, navPage, BlogPage, AboutPage, ContactPage, CheckOutPage, ModelsPage,search
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -30,6 +30,13 @@ urlpatterns = [
     path('SignOut/', SignOut, name='SignOut'),
     path('Shop/', ShopPage, name='ShopPage'),
     path('ProductDetail/', ProductDetail, name='ProductDetail'),
+    path('navPage/', navPage, name='navPage'),
+    path('BlogPage/', BlogPage, name='BlogPage'),
+    path('AboutPage/', AboutPage, name='AboutPage'),
+    path('ContactPage/', ContactPage, name='ContactPage'),
+    path('CheckOutPage/', CheckOutPage, name='CheckOutPage'),
+    path('ModelsPage/', ModelsPage, name='ModelsPage'),
+    path('search/', search,name="search" )
 
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
