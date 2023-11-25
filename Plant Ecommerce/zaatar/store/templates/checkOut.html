@@ -148,14 +148,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Assuming 'userId' is the same as when you set the item
-            var savedTotal = localStorage.getItem('total' + userId);
-        
+            var savedTotal = localStorage.getItem('Invoice' + userId);
             if (savedTotal) {
                 document.getElementById('checkoutTotal').textContent = savedTotal;
             }
         });
-        
-        
 
     </script>
 

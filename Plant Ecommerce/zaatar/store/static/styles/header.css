@@ -164,7 +164,7 @@
     border: none;
     border-bottom: 1px solid #000; /* Creates the line */
     outline: none;
-    width: 100%; /* Adjust width as needed */
+    width: 90%; /* Adjust width as needed */
     margin-top: 0px; /* Space above the search line */
     margin-right: 1ex;
     margin-left: 0;
