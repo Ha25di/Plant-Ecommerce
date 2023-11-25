@@ -96,13 +96,13 @@ def ModelsPage(request):
 def search(request):
     query = request.GET.get('query','')
     if query:
-        plants_results = Plant.objects.filter(name__icontains=query)
-        pesticides_results = Pesticide.objects.filter(name__icontains=query)
+        Plants = Plant.objects.filter(name__icontains=query)
+        Pesticides = Pesticide.objects.filter(name__icontains=query)
         # Combine the querysets
-        products = list(plants_results) + list(pesticides_results)
     else:
-        products = []
+        Plants = []
+        Pesticides = []
     return render(request, 'search.html',{
                   'query':query,
-                  'products':products
+                  'plants': Plants, 'pesticides': Pesticides
                   })

@@ -19,6 +19,7 @@
     margin: 15px 0;
     transition: 0.2s ease;
     position: relative;
+    
 }
 #product1 .pro:hover{
     box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.08);

@@ -31,17 +31,17 @@
         <h2>#loveplants</h2>
         <p>Save more with coupons & up to 70% off!</p>
     </section>
-   
     <section id="product1" class="section-p1">
-        <h3>Search For " {{ query }} "</h3>
+        <h2 style="margin-bottom:2ex">Search For " {{ query }} "</h2>
+        <h4>Our Plants</h4>
 
-        <div class="pro-container">
-        {% for product in products %}
+        <div class="pro-container" style="justify-content: flex-start;  ">
+        {% for plant in plants %}
         
-            <div class="pro" id = "product{{product.id}}">
-                <img class="producto" src="{{product.image.url}}">
+            <div class="pro" style="margin-right:7ex; " id = "plant{{plant.id}}">
+                <img class="producto" src="{{plant.image.url}}">
                 <div class="des">
-                    <h5>{{product.name}}</h5>
+                    <h5>{{plant.name}}</h5>
                     <div class="star">
                         <img class="star-icon" src="/static/img/icons/star.png">
                         <img class="star-icon" src="/static/img/icons/star.png">
@@ -49,9 +49,9 @@
                         <img class="star-icon" src="/static/img/icons/star.png">
                         <img class="star-icon" src="/static/img/icons/star.png">
                     </div>
-                    <h4>${{product.price}}</h4>
-                    <h3 style = "display: none;">{{product.description}}</h3>
-                    <h1 style = "display: none;"> {{product.quantity}}</h1>
+                    <h4>${{plant.price}}</h4>
+                    <h3 style = "display: none;">{{plant.description}}</h3>
+                    <h1 style = "display: none;"> {{plant.quantity}}</h1>
                 </div>
                 <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
             </div>
@@ -62,6 +62,37 @@
         
     </section>
 
+
+<!-- Pesticides Products Section-->
+<section id="product1" class="section-p1">
+    <span id = "product2"> &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;</span>
+    <h4>Organic Pesticides</h4>
+    <div class="pro-container" style="justify-content: flex-start; ">
+
+    {% for pest in pesticides %}
+        <div class="pro" style="margin-right:7ex;" id = "pest{{pest.id}}">
+            <img class="producto" src="{{pest.image.url}}">
+            <div class="des">
+                <h5>{{pest.name}}</h5>
+                <div class="star">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                    <img class="star-icon" src="/static/img/icons/star.png">
+                </div>
+                <h4>${{pest.price}}</h4>
+                <h3 style = "display: none;">{{pest.description}}</h3>
+                <h1 style = "display: none;"> {{pest.quantity}}</h1>
+            </div>
+            <div class="cart-icon-container"><a href="#"><img class="cart-icon" src="/static/img/icons/cart.png"></a></div>
+        </div>
+    
+
+        {% endfor %}
+    </div>
+   
+</section>
 
 
 
