@@ -1,9 +1,13 @@
 
+
 /******************************* Start add to Cart ****************************** */
 // This function will be called when a cart icon is clicked
 function addToCart(productID) {
+ // alert(userId);
   // Retrieve existing cart from localStorage
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // alert('cart'+userId);
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
+  // console.log("cart : "+cart);
 
   //console.log(cart);
 
@@ -14,6 +18,8 @@ function addToCart(productID) {
   const imgSrc = productElement.querySelector('.producto').src;
   const productName = productElement.querySelector('.des h5').textContent;
   const price = productElement.querySelector('.des h4').textContent;
+  const MaxQty = productElement.querySelector('.des h1').textContent;
+
 
   // Create a product object
   const product = {
@@ -21,7 +27,8 @@ function addToCart(productID) {
       image: imgSrc,
       name: productName,
       price: price.replace(/^\$/, ''), // Removing the dollar sign if present
-      quantity: 1 // Default quantity is 1
+      quantity: 1,
+      MaxQty: MaxQty
   };
 
    
@@ -50,7 +57,7 @@ function addToCart(productID) {
     }
   });
   // Save the updated cart back to localStorage
-  localStorage.setItem('cart', JSON.stringify(cart));
+  localStorage.setItem('cart'+userId, JSON.stringify(cart));
    // Add the number to the cart
    updateCartCounter();
 }
@@ -61,7 +68,9 @@ function addToCart(productID) {
 
 // Add number of items to the cart
 function updateCartCounter() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  // const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
+
   const totalQuantity = cart.reduce((accumulator, currentItem) => {
     return accumulator + currentItem.quantity;
   }, 0);
@@ -108,7 +117,9 @@ document.querySelectorAll('.pro').forEach((productElement, index) => {
 
 // This function will render the cart items on the cart page
 function renderCart() {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
   const cartBody = document.getElementById('cart-body');  
   
   // Clear the cart body
@@ -122,7 +133,7 @@ function renderCart() {
               <td><img src="${product.image}"></td>
               <td>${product.name}</td>
               <td>$${product.price}</td>
-              <td><input type="number" value="${product.quantity}" min="1" max="5" onchange="updateQuantity(${index}, this.value)"></td>
+              <td><input type="number" value="${product.quantity}" min = "1" max="${product.MaxQty}" onchange="updateQuantity(${index}, this.value)"></td>
               <td>$${(parseFloat(product.price) * product.quantity).toFixed(2)}</td>
           </tr>
       `;
@@ -135,9 +146,12 @@ function renderCart() {
 
 // This function will remove an item from the cart
 function removeFromCart(index) {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
+
   cart.splice(index, 1); // Remove the item at the specified index
-  localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  // localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  localStorage.setItem('cart'+userId, JSON.stringify(cart));
   renderCart(); // Re-render the cart
   updateCartTotal();
   updateCartCounter();
@@ -148,13 +162,16 @@ function removeFromCart(index) {
 
 /******************************* Update Quantity in Cart ****************************** */
 function updateQuantity(index, quantity) {
-  const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // const cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
 
   // Ensure the quantity is within the min and max values
-  quantity = Math.max(1, Math.min(quantity, 5));
+  quantity = Math.max(1, Math.min(quantity, cart[index].MaxQty));
   
   cart[index].quantity = quantity; // Update the quantity
-  localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  // localStorage.setItem('cart', JSON.stringify(cart)); // Update the cart in localStorage
+  localStorage.setItem('cart'+userId, JSON.stringify(cart));
+
   renderCart(); // Re-render the cart to update the subtotal
   updateCartTotal();
   updateCartCounter();
@@ -221,13 +238,18 @@ function applyCoupon() {
   let discount = 0;
 
   // Define the valid coupons
-  const validCoupons = ['hadi', 'jana'];
+  const validCoupons = coupDetail;
+  var foundCoupon = coupDetail.find(function(coupon) {
+    return coupon.name === couponInput;
+  });
 
-  // Check if the entered coupon is valid
-  if (validCoupons.includes(couponInput)) {
-    discount = cartTotal * 0.20; // 20% discount
+  if (foundCoupon) {
+    // Apply the discount
+    discount = cartTotal * (foundCoupon.discount / 100); // Convert discount percentage to a decimal
+    console.log("Discount applied: " + discount);
+  } else {
+    console.log("No valid coupon found");
   }
-
   // Calculate the total after applying discount
   let total = cartTotal - discount;
   

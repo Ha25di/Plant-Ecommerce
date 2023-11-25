@@ -75,12 +75,16 @@ MsearchIcon.addEventListener('click', function() {
 
 // This function will be called when a cart icon is clicked
 function addToCart(productID) {
+  
+  //  alert(userId);
+
     var imgSrc = null;
     var productName = null;
     var price = null;
+    var MaxQty = null;
 
     // Retrieve existing cart from localStorage
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
 
     // Find the product element
     const productElement = document.getElementById(productID);
@@ -90,6 +94,8 @@ function addToCart(productID) {
     imgSrc = productElement.querySelector('.producto').src;
     productName = productElement.querySelector('.des h5').textContent;
     price = productElement.querySelector('.des h4').textContent;
+    MaxQty = productElement.querySelector('.des h1').textContent;
+
     }
 
     else{
@@ -98,6 +104,7 @@ function addToCart(productID) {
         imgSrc = productDetails.imgSrc;
         productName = productDetails.productName;
         price = productDetails.price;
+        MaxQty = productDetails.MaxQty;
 
     }
   
@@ -107,7 +114,8 @@ function addToCart(productID) {
         image: imgSrc,
         name: productName,
         price: price.replace(/^\$/, ''), // Removing the dollar sign if present
-        quantity: 1 // Default quantity is 1
+        quantity: 1, // Default quantity is 1
+        MaxQty :MaxQty
     };
   
     // Add the product to the cart array
@@ -135,7 +143,8 @@ function addToCart(productID) {
     });
     
     // Save the updated cart back to localStorage
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart'+userId, JSON.stringify(cart)); 
+
     updateCartCounter();
   }
 
@@ -144,7 +153,8 @@ function addToCart(productID) {
 
 // Add number of items to the cart
 function updateCartCounter() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
+
   const totalQuantity = cart.reduce((accumulator, currentItem) => {
     return accumulator + currentItem.quantity;
   }, 0);
@@ -195,7 +205,7 @@ document.addEventListener('DOMContentLoaded', updateCartCounter);
   
   // This function will render the cart items on the cart page
   function renderCart() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+   const cart = JSON.parse(localStorage.getItem('cart'+userId)) || [];
     const cartBody = document.getElementById('cart-body');
     
     // Clear the cart body
@@ -209,7 +219,7 @@ document.addEventListener('DOMContentLoaded', updateCartCounter);
                 <td><img src="${product.image}"></td>
                 <td>${product.name}</td>
                 <td>$${product.price}</td>
-                <td><input type="number" value="${product.quantity}" min="1" max="5" onchange="updateQuantity(${index}, this.value)"></td>
+                <td><input type="number" value="${product.quantity}" min="1" max="${product.MaxQty}" onchange="updateQuantity(${index}, this.value)"></td>
                 <td>$${(parseFloat(product.price) * product.quantity).toFixed(2)}</td>
             </tr>
         `;
@@ -230,17 +240,18 @@ function handleProductClick(productId) {
     const imgSrc = productElement.querySelector('.producto').src;
     const productName = productElement.querySelector('.des h5').textContent;
     const price = productElement.querySelector('.des h4').textContent;
+    const MaxQty = productElement.querySelector('.des h1').textContent;
 
-    const current_product = { imgSrc, productName, price};
+    // productElement.querySelector('.des h3').style.display = 'block;'
+    // const desc = productElement.querySelector('.des h3').textContent;
+
+    const current_product = { imgSrc, productName, price, MaxQty};
     localStorage.setItem('current_product', JSON.stringify(current_product));
 
-    const details= "The African Violet is a petite and charming houseplant "
-    + "known for its velvety leaves and dainty, colorful flowers. Native to East Africa, "+
-    "it thrives in small spaces with bright, indirect light. With proper care, it adds a touch of "+
-    "elegance to indoor settings, blooming in shades of purple, pink, white, and blue year-round.";
+    const details = productElement.querySelector('.des h3').textContent;
   
-    // Save the product details to localStorage
-    const productDetails = { imgSrc, productName, price,details};
+    //Save the product details to localStorage
+    const productDetails = { imgSrc, productName, price, MaxQty, details};
     localStorage.setItem('currentProduct', JSON.stringify(productDetails));
   
     // Redirect to the sproduct.html page
