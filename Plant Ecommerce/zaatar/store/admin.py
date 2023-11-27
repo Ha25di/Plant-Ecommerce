@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Plant, Pesticide, Review, Coupon, OrderItem, Order
+from .models import Plant, Pesticide, Review, Coupon, Order, OrderItem
 
 
 admin.site.register(Plant)

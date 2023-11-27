@@ -1,0 +1,58 @@
+<title>Zaatar | Payment Success</title>
+
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="/static/img/icons/zaatar.png">
+    <link rel="stylesheet" href="/static/styles/globals.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/hero.css">
+    <link rel="stylesheet" href="/static/styles/product.css">
+    <link rel="stylesheet" href="/static/styles/newsletter.css">
+    <link rel="stylesheet" href="/static/styles/footer.css">
+    <link rel="stylesheet" href="/static/styles/responsive.css">
+    <link rel="stylesheet" href="/static/styles/Shop/page-header.css">
+    <link rel="stylesheet" href="/static/styles/Shop/pagination.css">
+
+     <!-- Font Awesome CSS -->
+     <link rel="stylesheet" href="/static/assets/css/vendor/font.awesome.min.css">
+
+
+{% include "nav.html" %} 
+
+
+    <!-- Include SweetAlert2 CSS and JS in your HTML head or right before the closing body tag -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+      window.onload = function() {
+        Swal.fire({
+          position: 'center', // Position it in the center
+          icon: 'success',
+          title: 'Payment Done Successfully!',
+          showConfirmButton: true, // Show the confirm button
+          width: '400px', // Set a smaller width
+          // Optionally, you can use customClass to define your own styles in CSS
+          customClass: {
+            popup: 'my-swal' // This is a class you can define in your CSS file
+          }
+        });
+      };
+    </script>
+
+    <section style="height: 80%; background-image: url('/static/img/banner/b7.jpg');"></section>
+
+
+
+    <section id="newsletter" class="section-p1">
+      <div class="newstext">
+          <h4>Sign Up For Newsletter</h4>
+          <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
+      </div>
+      <div class="form">
+          <input type="text" placeholder="Your email address">
+          <button class="normal">Sign Up</button>
+      </div>
+  </section>
+<!-- Footer -->
+{% include 'footer.html'%}
+
+<script src="/static/js/script.js"></script>

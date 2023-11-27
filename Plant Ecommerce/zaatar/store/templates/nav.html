@@ -1,7 +1,10 @@
 <section id="header">
     <a href="{% url 'HomePage' %}"><img id = "icon" src="/static/img/icons/zaatar.png"> </a>
     <div>
+        <div> User id is: {{user_id}} </div>
+        
         <ul id="navbar">
+
             <li><a href="{% url 'HomePage' %}" class="{% if current_page == 'home' %}active{% endif %}" >Home</a></li>
             <li><a href="{% url 'ShopPage'%}" class="{% if current_page == 'shop' %}active{% endif %}">Shop</a></li>
             <li id = "blogNav"><a href="{% url 'BlogPage' %}" class="{% if current_page == 'blog' %}active{% endif %}">Blog</a></li>
@@ -10,7 +13,14 @@
             <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>
            <!-- Hidden search box -->
            <form method="get" action="/search/"> <input type="text" id="search-input" name="query" placeholder="Search..." style="display: none;"> </form>
-            <li id="user-og"><a href = "{% url 'SignInPage'%}#loginglob" class="{% if current_page == 'login' %}active{% endif %}"> <i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+            {% if request.user.is_authenticated %}
+            <!-- If the user is logged in, show the sign-out icon -->
+            <li id="user-og"><a href="{% url 'SignOut' %}"><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a></li>
+            {% else %}
+            <!-- If the user is not logged in, show the login icon -->
+            <li id="user-og"><a href="{% url 'SignInPage' %}#loginglob" class="{% if current_page == 'login' %}active{% endif %}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a></li>
+            {% endif %}
+
             <li id="bag-og" class="cart-icon-container"><a href="{% url 'cartPage' %}" class="{% if current_page == 'cart' %}active{% endif %}"><img class="bag-icon" src="/static/img/icons/bag.png" ><span class="cart-counter" id="cartCounter">0</span></a></li>
             <img id="close" class="close-icon" src="/static/img/icons/x.png">
         </ul>
@@ -21,9 +31,15 @@
 
         <!-- user for mobile -->
 
-        <a href="{% url 'SignInPage' %}#loginglob" style="margin-right: 2.5ex; color: black;" class="{% if current_page == 'login' %}active{% endif %}">
-    <i class="fa fa-user fa-lg" aria-hidden="true" {% if current_page == 'login' %}style="font-size: 22px;"{% endif %}></i>
-</a>
+        
+    {% if request.user.is_authenticated %}
+    <!-- If the user is logged in, show the sign-out icon -->
+    <a href="{% url 'SignOut' %}" style="margin-right: 2.5ex; color: black;" ><i class="fa fa-sign-out fa-lg" aria-hidden="true"></i></a>
+    {% else %}
+    <!-- If the user is not logged in, show the login icon -->
+    <a href="{% url 'SignInPage' %}#loginglob" style="margin-right: 2.5ex; color: black;" class="{% if current_page == 'login' %}active{% endif %}"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+    {% endif %}
+
 
         
         <!-- cart for mobile-->
@@ -35,5 +51,4 @@
 
 <script type="text/javascript">
     var userId = {{ user_id }};  
-    </script>  
-
+    </script>

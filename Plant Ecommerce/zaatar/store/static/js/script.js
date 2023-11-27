@@ -20,6 +20,21 @@ function addToCart(productID) {
   const price = productElement.querySelector('.des h4').textContent;
   const MaxQty = productElement.querySelector('.des h1').textContent;
 
+  if(MaxQty <= 0) {
+    Swal.fire({
+      position: 'center', // Position it in the center
+      icon: 'error', // Change icon to 'error'
+      title: 'Out Of Stock', // Update title to indicate failure
+      showConfirmButton: true, // Show the confirm button
+      width: '400px', // Set a smaller width
+      // Optionally, you can use customClass to define your own styles in CSS
+      customClass: {
+        popup: 'my-swal' // This is a class you can define in your CSS file
+      }
+    });
+  }
+
+  else{
 
   // Create a product object
   const product = {
@@ -60,6 +75,8 @@ function addToCart(productID) {
   localStorage.setItem('cart'+userId, JSON.stringify(cart));
    // Add the number to the cart
    updateCartCounter();
+
+  }
 }
 
 
@@ -253,6 +270,19 @@ function applyCoupon() {
     // Apply the discount
     discount = cartTotal * (foundCoupon.discount / 100); // Convert discount percentage to a decimal
     console.log("Discount applied: " + discount);
+    Swal.fire({
+      position: 'center', // Position it in the center
+      icon: 'success',
+      title: 'Discount Applied',
+      showConfirmButton: false,
+      timer: 1500,
+      width: '400px', // Set a smaller width
+      // Optionally, you can use customClass to define your own styles in CSS
+      customClass: {
+        popup: 'my-swal' // This is a class you can define in your CSS file
+      }
+    });
+    
   } else {
     console.log("No valid coupon found");
   }
@@ -333,53 +363,6 @@ MsearchIcon.addEventListener('click', function() {
 
 /******************************* End For search icon click ****************************** */
 
-
-
-/******************************* Start for review ****************************** */
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('review-submit').addEventListener('click', function() {
-        // Collect values from the form
-        var title = document.getElementById('review-title').value;
-        var body = document.getElementById('review-body').value;
-        var name = document.getElementById('reviewer-name').value;
-        var date = document.getElementById('review-date').value;
-        var image = document.getElementById('review-image').value;
-
-        // Check if any of the fields are empty
-        if (!title || !body || !name || !date || !image) {
-            alert('Please fill in all fields.');
-            return;
-        }
-
-        // Create the new review element
-        var blogBox = document.createElement('div');
-        blogBox.className = 'blog-box';
-
-        blogBox.innerHTML = `
-            <div class="blog-img">
-                <img src="${image}">
-            </div>
-            <div class="blog-details">
-                <h4>${title}</h4>
-                <p>${body}</p>
-                <h5>${name}</h5>
-            </div>
-            <h1>${new Date(date).toLocaleDateString()}</h1>
-        `;
-
-        // Append the new review to the blog section
-        var blogSection = document.getElementById('blog');
-        blogSection.appendChild(blogBox);
-
-        // Clear the form fields
-        document.getElementById('review-title').value = '';
-        document.getElementById('review-body').value = '';
-        document.getElementById('reviewer-name').value = '';
-        document.getElementById('review-date').value = '';
-        document.getElementById('review-image').value = '';
-    });
-});
-/******************************* End for review ****************************** */
 
 
 /******************************* Start code for login/signup ****************************** */

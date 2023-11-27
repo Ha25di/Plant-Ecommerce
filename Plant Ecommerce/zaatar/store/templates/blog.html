@@ -29,78 +29,69 @@
         <p>Read all case studies about about our products</p>
     </section>
     <section id="blog">
+
+        <script type="text/javascript">
+            const images = [
+                '/static/img/banner/b16.jpg',
+                '/static/img/banner/b10.jpg',
+                '/static/img/banner/b17.jpg',
+                '/static/img/banner/b19.jpg',
+                '/static/img/banner/b2.jpg'
+            ];
+        
+            function getRandomImageIndex() {
+                return Math.floor(Math.random() * images.length);
+            }
+        
+            document.addEventListener('DOMContentLoaded', (event) => {
+                // Assign a random image to each review
+                document.querySelectorAll('.blog-img img').forEach(img => {
+                    img.src = images[getRandomImageIndex()];
+                });
+            });
+        </script>
+        
+
+
+        {% for review in reviews %}
+
         <div class="blog-box">
             <div class="blog-img">
-                <img src="/static/img/banner/b19.jpg">
+                <img src="" id="review-img-{{ forloop.counter }}">
             </div>
             <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
+                <h4>{{ review.title }}</h4>
+                <p>{{ review.reviewBody}}</p>
+                <h5>{{ review.user }}</h5>
             </div>
-            <h1>13/01</h1>
+            <h1>{{ review.date_posted|date:"d/m" }}</h1>
         </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="/static/img/banner/b2.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>13/04</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="/static/img/banner/b10.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>12/01</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="/static/img/banner/b17.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>16/01</h1>
-        </div>
-        <div class="blog-box">
-            <div class="blog-img">
-                <img src="/static/img/banner/b16.jpg">
-            </div>
-            <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-Up Hoodie</h4>
-                <p>Kickstarter man braid godard coloring book. Reclette waistcoat selfies yr 
-                wolf chartreuse hexagon irony, godard...</p>
-                <h5>Jana Jaber</h5>
-            </div>
-            <h1>10/03</h1>
-        </div>
+
+        {% endfor %}
+
+        
     </section>
+
+    
+    {% if user_id != None %}
 
     <section id="add-review" class="section-p1">
         <h3><center> Add Your Review </center></h3>
-        <form class="review-form" action="">
-            <input type="text" id="user-name" placeholder="Your Name" required>
-            <input type="text" id="review-title" placeholder="Review Title" required>
-            <textarea id="review-content" placeholder="Your Review" required></textarea>
-            <center> <button id="addicon" class="pagination2">Submit Review</button></center>
+
+        <form class="review-form" action= "{% url 'add_review' %}" method = "post">
+            {% csrf_token %}
+
+            <input type="text" id="user-name" placeholder="Your Name" name = "name" required>
+            <input type="text" id="review-title" placeholder="Review Title"  name = "title" required>
+            <textarea id="review-content" placeholder="Your Review" name = "reviewBody" required></textarea>
+            <center> <button id="addicon" class="pagination2" type= "submit">Submit Review</button></center>
+
         </form>
     </section>
-    
+
+    {% endif %}
+
+
     <!-- newsletter-->
     <section id="newsletter" class="section-p1">
         <div class="newstext">
@@ -112,46 +103,11 @@
             <button class="normal">Sign Up</button>
         </div>
     </section>
-  <!-- Footer -->
-  <footer class="section-p1">
-    <div class="col">
-        <h4><b>About</b></h4>
-        <a href="about.html">About Us</a>
-        <a href="#">Delivery Information</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="contact.html">Contact Us</a>
-    </div>
 
-    <div class="col">
-        <h4><b>My Account</b></h4>
-        <a href="login.html">Sign In</a>
-        <a href="cart.html">View Cart</a>
-        <a href="shop.html">Shop</a>
-        <a href="models.html">Detect My Plant Disease</a>
-        <a href="models.html">Detect Plants For Soil Type</a>
-    </div>
+    <!-- Footer -->
+    {% include 'footer.html'%}
 
-    <div class="col">
-        <h4><b>Contact</b></h4>
-        <p><strong>Address:</strong> Hamra, Beirut, Lebanon</p>
-        <p><strong>Phone:</strong> +(961) 70 222 365 </p>
-        <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
-        <div class="follow">
-            <h4><strong> Follow Us</strong></h4>
-            <div class="icon">
-                <a href = "https://www.facebook.com/"> <img class="footer-icon" src="/static/img/icons/facebook.png"> </a>
-                <a href = "https://www.Twitter.com/"><img class="footer-icon" src="/static/img/icons/twitter.png"></a>
-                <a href = "https://www.instagram.com/"><img class="footer-icon" src="/static/img/icons/instagram.png"></a>
-                <a href = "https://www.youtube.com/"><img class="footer-icon" src="/static/img/icons/youtube.png"></a>
-                <a href = "https://www.pinterest.com/"><img class="footer-icon" src="/static/img/icons/pinterest.png"></a>
-            </div>
-        </div>
-    </div>
-  
-</footer>
-
-    <script src="/static/js/blog.js"></script>
     <script src="/static/js/script.js"></script>
+    
 </body>
 </html>

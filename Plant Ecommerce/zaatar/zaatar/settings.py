@@ -41,6 +41,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'zaatar.urls'
 
+STRIPE_PUB_KEY = 'pk_test_51OGkkqKOI3diT1ns640OWCFCZQs85HFuQvN1A0pOQdUo3FOCpvtpo8h243TdnS0CsGNzozNAkehg3qi5WfOcPtxx00TlvHJ1ON'
+STRIPE_SECRET_KEY = 'sk_test_51OGkkqKOI3diT1nsJlwYdd37orv6aKVbWa46x3qU1gKsgCNgcrCaeqH7b2dYybQhfK999nmk0ICuJf1yrGRTMpQw00XijfOvoe'
+
+STRIPE_WEBHOOK_SECRET = 'whsec_ee79169de19aa236dc15018f34697741f043e659017e813fa85d2be67747c1cb'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -118,3 +123,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [BASE_DIR / 'store/static',
                     ]
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.office365.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'Hadibazzi2017@hotmail.com'
+EMAIL_HOST_PASSWORD = 'Hadibazzi.099'
+
+
+CORS_ORIGIN_ALLOW_ALL = True

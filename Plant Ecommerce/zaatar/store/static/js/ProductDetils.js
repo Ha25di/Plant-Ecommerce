@@ -107,6 +107,24 @@ function addToCart(productID) {
         MaxQty = productDetails.MaxQty;
 
     }
+
+    // alert(MaxQty);
+
+    if(MaxQty <= 0) {
+      Swal.fire({
+        position: 'center', // Position it in the center
+        icon: 'error', // Change icon to 'error'
+        title: 'Out Of Stock', // Update title to indicate failure
+        showConfirmButton: true, // Show the confirm button
+        width: '400px', // Set a smaller width
+        // Optionally, you can use customClass to define your own styles in CSS
+        customClass: {
+          popup: 'my-swal' // This is a class you can define in your CSS file
+        }
+      });
+    }
+
+    else{
   
     // Create a product object
     const product = {
@@ -147,6 +165,7 @@ function addToCart(productID) {
 
     updateCartCounter();
   }
+}
 
 
 
