@@ -369,8 +369,23 @@ MsearchIcon.addEventListener('click', function() {
 let wrapper = document.querySelector('.wrapper'),
     signUpLink = document.querySelector('.link .signup-link'),
     signInLink = document.querySelector('.link .signin-link');
+    
+// msgs = messages;
+//alert(msgs);
 
 signUpLink.addEventListener('click', () => {
+//   if (msgs.length > 0) {
+//     // Process messages
+//     msgs.forEach(function(message) {
+//         console.log(message); 
+//         console.log(typeof message); 
+//         // if (message.trim() !== 'Invalid username or password') {
+//         //   alert("hello");
+//         // }
+//     });
+// }
+
+
     wrapper.classList.add('animated-signin');
     wrapper.classList.remove('animated-signup');
 });

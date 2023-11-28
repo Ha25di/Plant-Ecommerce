@@ -18,6 +18,17 @@
     <link rel="stylesheet" href="/static/styles/Signin/login.css">
     <!-- Font Awesome CSS -->
     <link rel="stylesheet" href="/static/assets/css/vendor/font.awesome.min.css">
+
+    <style>
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        
+
+    </style>
 </head>
 
 <body>
@@ -48,9 +59,16 @@
                     <label for="">confirm password</label>
                     <i class="fa fa-lock" aria-hidden="true"></i>
                 </div>
+                {% if messages %}
+                {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+                {% endfor %}
+                {% endif %}
+
+            
                 <button type="submit" name="signup" class="btn">sign up</button>
                 <div class="link">
-                    <p>You already have an account?<a href="{% url 'SignInPage' %}" class="signin-link"> Sign in</a></p>
+                    <p>You already have an account?<a href="#" class="signin-link"> Sign in</a></p>
                 </div>
             </form>
         </div>
@@ -68,13 +86,21 @@
                     <i class="fa fa-lock" aria-hidden="true"></i>
                     <label for="">password</label>
                 </div>
-                <div class="forgot-pass">
+                <div>
+                 {% if messages %}
+                {% for message in messages %}
+                <div class="error-message">{{ message }}</div>
+                {% endfor %}    
+                {% endif %} 
+                </div>
+                <div class="forgot-pass" style="margin-top: 10px;">
                     <a href="#">forgot password?</a>
                 </div>
                 <button type="submit" class="btn" name="signin">login</button>
                 <div class="link">
                     <p>Don't have an account?<a href="#" class="signup-link"> sign up</a></p>
                 </div>
+
             </form>
         </div>
     </div>
@@ -82,6 +108,61 @@
    
      <!-- Footer -->
     {% include 'footer.html'%}
+
+    
+
+    {% if messages %}
+    <script type="text/javascript">
+        var messages = [
+            {% for message in messages %}
+                "{{ message }}"{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ];
+    </script>
+    {% endif %}
+
+    {% comment %} <script>
+        window.onload = function() {
+            signUpLink = document.querySelector('.link .signup-link'),
+            signInLink = document.querySelector('.link .signin-link');
+
+            let messages=[];
+            
+            
+            if (messages.length > 0) {
+                // Process messages
+                messages.forEach(function(message) {
+                    console.log(message); 
+                    console.log(typeof message); 
+                    
+                });
+                wrapper.classList.add('animated-signin');
+                wrapper.classList.remove('animated-signup');
+            }
+        };
+        
+
+    </script> {% endcomment %}
+    {% if messages %}
+    <script>
+        window.onload = function() {
+            var signUpLink = document.querySelector('.link .signup-link'),
+                signInLink = document.querySelector('.link .signin-link'),
+                wrapper = document.querySelector('.wrapper');
+    
+            var signupErrorMessages = ['Username already exists', 'Email already exists', 'Passwords do not match'];
+            var hasSignupError = messages.some(msg => signupErrorMessages.includes(msg));
+    
+            if (hasSignupError) {
+                wrapper.classList.add('animated-signin');
+                wrapper.classList.remove('animated-signup');
+            }
+    
+            // Rest of your JavaScript logic...
+        };
+    </script>
+    {% endif%}
+    
 
     <script src="/static/js/script.js"></script>
     
