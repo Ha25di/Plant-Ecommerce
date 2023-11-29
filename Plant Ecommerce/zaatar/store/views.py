@@ -29,6 +29,7 @@ def cartPage(request):
  
  
 def SignInPage(request):
+    
     if request.method == 'POST':
         if 'signup' in request.POST:  # Check if this is a sign up form submission
             # Extract the information from the signup form
@@ -53,6 +54,7 @@ def SignInPage(request):
                     return redirect('HomePage')
             else:
                 messages.error(request, 'Passwords do not match')
+                # return redirect('SignInPage/#')
 
         elif 'signin' in request.POST:  # Check if this is a sign in form submission
             # Extract the information from the sign in form

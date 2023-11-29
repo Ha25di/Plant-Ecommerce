@@ -1,0 +1,16 @@
+Frontend:
+- number of cart is not responsive on mobile screen when opening search
+- Cart and user icons are not underlined when we are in these pages on mobile screens.
+- Footer color in Sign In Page
+
+
+Other:
+- In review page, validate input fields for review.
+
+- In sign in / sign up page, validate input fields, and raise error if username/password wrong or username already exists in Sign up.
+
+- Models Page: Both Frontend and Backend
+
+- Forgot Password Functionality.
+
+- Account Page: Both Frontend and Backend.
