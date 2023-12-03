@@ -2,6 +2,8 @@ let aboutDiv1;
 let aboutDiv2;
 let aboutDiv3;
 let aboutDiv4;
+let aboutDiv5;
+let aboutDiv6;
 
 // document.addEventListener("DOMContentLoaded", function() {
 //     aboutDiv1 = document.querySelector(".aboutDiv1");
@@ -169,11 +171,11 @@ function swalsuccess2() {
 document.addEventListener("DOMContentLoaded", function() {
     aboutDiv5 = document.getElementById("aboutDiv5");
     aboutDiv6 = document.getElementById("aboutDiv6");
-    const uploadButton2 = document.getElementById("upload3");
+    const uploadButton3 = document.getElementById("upload3");
 
    // alert("Uploading");
  
-    uploadButton2.addEventListener('click', function() {
+    uploadButton3.addEventListener('click', function() {
 
         // Get all input fields and select elements
     var temp2 = document.getElementById('Temp2').value.trim();
@@ -189,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Check if all fields are filled
     if (temp2 &&  humidity2&& ph2 && rainfall2 && nitrogen2 && phosphorus2 && potassium2) {
-        swalsuccess2();
+        swalsuccess3();
     } else {
         alert("Please fill all the fields.");
     }
@@ -238,6 +240,17 @@ document.addEventListener("DOMContentLoaded", function() {
     .then(data => {
         console.log('Success:', data);
         // additional logic based on response
+
+        const resultDiv = document.getElementById('predCrop');
+
+        if(resultDiv){
+            console.log(data.result); 
+            resultDiv.innerHTML = data.result;
+        }
+        // if (typeof updateResultDiv === "function") {
+        //     console.log("goin");
+        //     updateResultDiv(data);
+        // }
     })
     .catch(error => {
         console.error('Fetch error:', error);
@@ -288,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 // This function shows a SweetAlert message while processing
-function swalsuccess2() {
+function swalsuccess3() {
   if (!aboutDiv5 || !aboutDiv6) {
     console.error("aboutDiv5 or aboutDiv6 is not defined");
     return;

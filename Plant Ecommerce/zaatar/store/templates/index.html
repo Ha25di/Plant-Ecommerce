@@ -267,9 +267,19 @@
     <script src="/static/assets/js/plugins/jquery.magnific-popup.min.js"></script>
 
     <!-- Main JS -->
+
+    {% comment %} <script>
+        function updateResultDiv(data) {
+            const resultDiv = document.getElementById('divv1');
+            if (resultDiv) {
+                resultDiv.innerHTML = "Result: " + data.result; // Format as needed
+            }
+        }
+    </script> {% endcomment %}
+
     <script src="/static/assets/js/main.js"></script>
 
-
+{% comment %} 
     <script>
         function fetchPlantData() {
             //alert('Plant data');
@@ -288,8 +298,9 @@
                 .catch(error => console.error('Error:', error));
         }
         fetchPlantData()
-     </script>
+     </script> {% endcomment %}
 
+     
 
 
 </body>
