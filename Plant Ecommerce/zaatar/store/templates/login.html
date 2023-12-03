@@ -59,11 +59,19 @@
                     <label for="">confirm password</label>
                     <i class="fa fa-lock" aria-hidden="true"></i>
                 </div>
+                <div class="error-message" id = "errDiv2"> </div>
+
                 {% if messages %}
                 {% for message in messages %}
-                <div class="error-message">{{ message }}</div>
+                <script> 
+                    {% comment %} alert("{{ message|escapejs }}"); {% endcomment %}
+                    errDiv2 = document.getElementById("errDiv2");
+                    if("{{ message|escapejs }}" != "Invalid username or password"){
+                        errDiv2.innerHTML = "{{ message|escapejs }}";
+                    }
+                </script>
                 {% endfor %}
-                {% endif %}
+            {% endif %}
 
             
                 <button type="submit" name="signup" class="btn">sign up</button>
@@ -71,6 +79,9 @@
                     <p>You already have an account?<a href="#" class="signin-link"> Sign in</a></p>
                 </div>
             </form>
+
+
+
         </div>
         <div class="form-container sign-in">
             <form action="{% url 'SignInPage' %}"  method = "post">
@@ -87,12 +98,23 @@
                     <label for="">password</label>
                 </div>
                 <div>
-                 {% if messages %}
-                {% for message in messages %}
-                <div class="error-message">{{ message }}</div>
-                {% endfor %}    
-                {% endif %} 
+                    <div class="error-message" id = "errDiv"> </div>
+
+                    {% if messages %}
+                    {% for message in messages %}
+                    <script> 
+                        {% comment %} alert("{{ message|escapejs }}"); {% endcomment %}
+                        errDiv = document.getElementById("errDiv");
+                        if("{{ message|escapejs }}" == "Invalid username or password"){
+                            errDiv.innerHTML = "{{ message|escapejs }}";
+                        }
+                    </script>
+                    {% endfor %}
+                {% endif %}
+                
                 </div>
+
+
                 <div class="forgot-pass" style="margin-top: 10px;">
                     <a href="#">forgot password?</a>
                 </div>
@@ -111,7 +133,7 @@
 
     
 
-    {% if messages %}
+   {% if messages %}
     <script type="text/javascript">
         var messages = [
             {% for message in messages %}
@@ -119,30 +141,9 @@
             {% endfor %}
         ];
     </script>
-    {% endif %}
+    {% endif %} 
 
-    {% comment %} <script>
-        window.onload = function() {
-            signUpLink = document.querySelector('.link .signup-link'),
-            signInLink = document.querySelector('.link .signin-link');
 
-            let messages=[];
-            
-            
-            if (messages.length > 0) {
-                // Process messages
-                messages.forEach(function(message) {
-                    console.log(message); 
-                    console.log(typeof message); 
-                    
-                });
-                wrapper.classList.add('animated-signin');
-                wrapper.classList.remove('animated-signup');
-            }
-        };
-        
-
-    </script> {% endcomment %}
     {% if messages %}
     <script>
         window.onload = function() {
@@ -157,8 +158,6 @@
                 wrapper.classList.add('animated-signin');
                 wrapper.classList.remove('animated-signup');
             }
-    
-            // Rest of your JavaScript logic...
         };
     </script>
     {% endif%}

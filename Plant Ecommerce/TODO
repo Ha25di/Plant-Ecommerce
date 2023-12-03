@@ -7,7 +7,7 @@ Frontend:
 Other:
 - In review page, validate input fields for review.
 
-- In sign in / sign up page, validate input fields, and raise error if username/password wrong or username already exists in Sign up.
+- In sign in / sign up page, validate input fields passwords and emails. 
 
 - Models Page: Both Frontend and Backend
 

@@ -18,7 +18,7 @@ from asyncio import CancelledError
 from sre_constants import SUCCESS
 from django.contrib import admin
 from django.urls import path
-from store.views import FailurePage, HomePage, SignInPage, add_review, cartPage, SignOut, ShopPage, ProductDetail, footerPage, handle_cart_data, my_webhook_view, navPage, BlogPage, AboutPage, ContactPage, CheckOutPage, ModelsPage,search, successPage
+from store.views import FailurePage, HomePage, SignInPage, add_review, analyze1, cartPage, SignOut, ShopPage, ProductDetail, footerPage, handle_cart_data, my_webhook_view, navPage, BlogPage, AboutPage, ContactPage, CheckOutPage, ModelsPage,search, successPage
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -44,6 +44,7 @@ urlpatterns = [
     path('webhook/stripe', my_webhook_view, name='webhook-stripe'),
     path('successPage/',successPage, name='successPage'),
     path('FailurePage/',FailurePage, name='FailurePage'),
+    path('analyze1/',analyze1, name='analyze1'),
     
 
     

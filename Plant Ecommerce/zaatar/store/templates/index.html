@@ -52,6 +52,10 @@
 
 {% include "nav.html" %} 
 
+<div id = "divv1"> hi </div>
+<div id = "divv2"> hi </div>
+
+
 <!-- tokhbis starts here -->
  <!-- Slider/Intro Section Start -->
  <div class="intro11-slider-wrap section">
@@ -264,6 +268,29 @@
 
     <!-- Main JS -->
     <script src="/static/assets/js/main.js"></script>
+
+
+    <script>
+        function fetchPlantData() {
+            //alert('Plant data');
+            fetch('/analyze1/')  // Replace with the correct URL to your `analyze1` function
+                .then(response => response.json())
+                .then(data => {
+                    // Here 'data' is the JSON response.
+                    // You can now use this data to update your HTML page.
+                    console.log("predicted: ",data);  // For demonstration purposes.
+                    console.log("predicted: ",data.result);
+                    // Example: Update the page with the fetched data
+                    document.getElementById('divv1').innerHTML = data.result || 'No result';
+                    document.getElementById('divv2').innerHTML = data.result || 'No result';
+                    //document.getElementById('predCrop').innerHTML = data.result;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        fetchPlantData()
+     </script>
+
+
 
 </body>
 
