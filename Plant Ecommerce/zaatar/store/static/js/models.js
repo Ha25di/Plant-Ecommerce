@@ -208,20 +208,7 @@ document.addEventListener("DOMContentLoaded", function() {
         'K': potassium2
     };
 
-    // AJAX request to Django
-    // $.ajax({
-    //     type: 'POST',
-    //     url: '/analyze1/', // Replace with the URL to your Django view
-    //     data: data,
-    //     success: function(response) {
-    //         // Handle success - you can update the UI based on the response
-    //         console.log(response);
-    //     },
-    //     error: function(error) {
-    //         // Handle error
-    //         console.log(error);
-    //     }
-    // });
+   
 
     fetch('/analyze1/', {
         method: 'POST',
@@ -247,10 +234,6 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log(data.result); 
             resultDiv.innerHTML = data.result;
         }
-        // if (typeof updateResultDiv === "function") {
-        //     console.log("goin");
-        //     updateResultDiv(data);
-        // }
     })
     .catch(error => {
         console.error('Fetch error:', error);
@@ -259,26 +242,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 });
 
-//fetchPlantData()
 
 });
 
-
-// function fetchPlantData() {
-//     alert('Plant data');
-//     fetch('/analyze1/')  // Replace with the correct URL to your `analyze1` function
-//         .then(response => response.json())
-//         .then(data => {
-//             // Here 'data' is the JSON response.
-//             // You can now use this data to update your HTML page.
-//             console.log("predicted: ",data);  // For demonstration purposes.
-//             console.log("predicted: ",data.result);
-//             // Example: Update the page with the fetched data
-//             document.getElementById('divv').innerHTML = "hello";
-//             document.getElementById('predCrop').innerHTML = data.result;
-//         })
-//         .catch(error => console.error('Error:', error));
-// }
 
 
 
@@ -309,10 +275,10 @@ function swalsuccess3() {
     let timerInterval
     Swal.fire({
         title: 'Loading...',
-        text: 'Investigating the plant apprpriate fertilizer...',
+        text: 'Investigating the best plant for your environment...',
         icon: 'info',
         confirmButtonText: 'Continuar',
-        timer: 4000,
+        timer: 2000,
         timerProgressBar: true,
         didOpen: () => {
             Swal.showLoading()
