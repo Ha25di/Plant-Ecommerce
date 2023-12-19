@@ -94,6 +94,8 @@ let aboutDiv6;
 
 
 /*******************************  For Fertilizer Section  *****************************************/
+var data;
+
 
 document.addEventListener("DOMContentLoaded", function() {
     aboutDiv3 = document.getElementById("aboutDiv3");
@@ -121,9 +123,53 @@ document.addEventListener("DOMContentLoaded", function() {
     } else {
         alert("Please fill all the fields.");
     }
+
+    data = {
+        'temperature': temp,
+        'moisture': moisture,
+        'soil': soil,
+        'humidity': humidity,
+        'N': nitrogen,
+        'P': phosphorus,
+        'K': potassium,
+        'crop': crop
+    };
+
+   
+
+    fetch('/analyze2/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')  // Ensure CSRF token is sent
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok, status: ' + response.status);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // additional logic based on response
+
+        const resultDiv = document.getElementById('predFert');
+
+        if(resultDiv){
+            resultDiv.innerHTML = data.pest_details.name;
+            localStorage.setItem('modelProduct', JSON.stringify(data.pest_details));
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
+
      
     });
 });
+
 
 // This function shows a SweetAlert message while processing
 function swalsuccess2() {
@@ -162,7 +208,6 @@ function swalsuccess2() {
           }
     })
 }
-
 
 
 
@@ -247,8 +292,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-
-
  // Helper function to get CSRF token from cookies
  function getCookie(name) {
     let cookieValue = null;
@@ -303,3 +346,8 @@ function swalsuccess3() {
           }
     })
 }
+
+
+
+
+

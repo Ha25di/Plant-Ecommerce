@@ -2,6 +2,7 @@ from venv import logger
 from django.urls import reverse
 from django.shortcuts import render, redirect
 from django.shortcuts import redirect
+import pandas as pd
 from .models import Plant, Pesticide, Coupon, Review, OrderItem, Order
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -235,6 +236,9 @@ def handle_cart_data(request):
 
 @csrf_exempt
 def my_webhook_view(request):
+    
+    #print("HELllllllllllllllllllllllllllllllllllllllllllll")
+    
     payload = request.body
     sig_header = request.META['HTTP_STRIPE_SIGNATURE']
     event = None
@@ -257,6 +261,7 @@ def my_webhook_view(request):
         # Extract the order ID from session metadata
         order_id = session['metadata'].get('order_id')
         payment_intent_id = session.get('payment_intent')
+        
         
         # Retrieve metadata
         item_ids_string = session['metadata'].get('item_ids')
@@ -369,7 +374,7 @@ def analyze1(request):
 
     # make a list of user input
         userInput = [N, P, K, temp, humidity, ph, rainfall]
-        RF = joblib.load('trained_model.pkl')
+        RF = joblib.load('trained_RF_model.pkl')
         
     
     # use trained model to predict the data based on user input
@@ -382,6 +387,77 @@ def analyze1(request):
         
     # Return a JSON response
     return JsonResponse({'result': result})
+
+
+
+
+def analyze2(request):
+    
+    result = None
+     
+    if request.method == 'POST':
+        data = json.loads(request.body)
+
+        
+        N = data.get('N')
+        P = data.get('P')
+        K = data.get('K')
+        temp = data.get('temperature')
+        moisture = data.get('moisture')
+        humidity = data.get('humidity')
+        soil = data.get('soil')
+        crop = data.get('crop')
+        
+        
+        #print(soil, crop, moisture,humidity, N, P, K, temp)
+        
+        LR = joblib.load('trained_LR_model.pkl')
+        
+        soil_type_encoder = joblib.load('trained_Soil Type_encoder.pkl')
+        crop_type_encoder = joblib.load('trained_Crop Type_encoder.pkl')
+
+        # Encode the categorical data
+        soil_encoded = soil_type_encoder.transform([soil])[0]
+        crop_encoded = crop_type_encoder.transform([crop])[0]
+        
+        userInput = [temp, humidity, moisture, soil_encoded, crop_encoded, N, K, P]
+        
+        # Prepare your input data (assuming userInput is a list of feature values)
+        input_df = pd.DataFrame([userInput], columns=['Temperature', 'Humidity', 'Moisture', 'Soil Type',
+                                                      'Crop Type', 'Nitrogen', 'Potassium', 'Phosphorous']) 
+        result = LR.predict(input_df)[0]
+        
+        print("HEEEEEEELLLLOOOO", result)
+        
+        # Retrieve the plant with the name matching 'result'
+        #pest = Pesticide.objects.get(name=result)
+        
+        # Retrieve the pesticide whose name contains 'result'
+        pest = Pesticide.objects.get(name__icontains = result)
+        
+        print (pest.price, pest.description, pest.name)
+        
+        pest_details = {
+            'image': pest.image.url if pest.image else None,
+            'price': pest.price,
+            'description': pest.description,
+            'name': pest.name
+        }
+        
+        
+        
+       # print('DWDdwdwfdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwd',pest_details)
+        
+       # print(result)
+        
+        if isinstance(result, np.ndarray):
+                result = result.tolist()
+        elif isinstance(result, np.generic):
+                result = result.item()
+        
+    # Return a JSON response
+    return JsonResponse({
+        'pest_details': pest_details})
 
 
 
