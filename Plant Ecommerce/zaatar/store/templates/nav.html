@@ -1,13 +1,13 @@
 <section id="header">
     <a href="{% url 'HomePage' %}"><img id = "icon" src="/static/img/icons/zaatar.png"> </a>
     <div>
-        <div> User id is: {{user_id}} </div>
+        {% comment %} <div> User id is: {{user_id}} </div> {% endcomment %}
         
         <ul id="navbar">
 
             <li><a href="{% url 'HomePage' %}" class="{% if current_page == 'home' %}active{% endif %}" >Home</a></li>
             <li><a href="{% url 'ShopPage'%}" class="{% if current_page == 'shop' %}active{% endif %}">Shop</a></li>
-            <li id = "blogNav"><a href="{% url 'BlogPage' %}" class="{% if current_page == 'blog' %}active{% endif %}">Blog</a></li>
+            <li id = "blogNav"><a href="{% url 'BlogPage' %}" class="{% if current_page == 'blog' %}active{% endif %}">Review</a></li>
             <li><a href="{% url 'AboutPage'%}" class="{% if current_page == 'about' %}active{% endif %}">About</a></li>
             <li id = "contact"><a href="{% url 'ContactPage' %}" class="{% if current_page == 'contact' %}active{% endif %}">Contact</a></li>
             <li id="search-og"><a> <i class="fa fa-search" aria-hidden="true"></i></a></li>

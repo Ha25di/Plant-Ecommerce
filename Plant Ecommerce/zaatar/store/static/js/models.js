@@ -95,8 +95,6 @@ let aboutDiv6;
 
 /*******************************  For Fertilizer Section  *****************************************/
 var data;
-
-
 document.addEventListener("DOMContentLoaded", function() {
     aboutDiv3 = document.getElementById("aboutDiv3");
     aboutDiv4 = document.getElementById("aboutDiv4");
@@ -276,8 +274,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const resultDiv = document.getElementById('predCrop');
 
         if(resultDiv){
-            console.log(data.result); 
-            resultDiv.innerHTML = data.result;
+            resultDiv.innerHTML = data.plant_details.name;
+            localStorage.setItem('modelProduct', JSON.stringify(data.plant_details));
         }
     })
     .catch(error => {

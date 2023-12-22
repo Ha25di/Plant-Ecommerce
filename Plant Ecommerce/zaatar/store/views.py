@@ -19,6 +19,7 @@ import stripe
 from django.views.decorators.csrf import csrf_exempt
 import numpy as np
 import joblib
+from django.db.models.functions import Lower
 
 
 def HomePage(request):
@@ -120,21 +121,30 @@ def search(request):
                   'query':query,
                   'plants': Plants, 'pesticides': Pesticides
                   })
+    
 
-
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 def add_review(request):
+    sentiment = SentimentIntensityAnalyzer()
     if request.method == 'POST':
         print("Received a POST request.")
 
         # Print the form data
-        print("Form data:", request.POST)
+        #print("Form data:", request.POST)
         
         user = request.user  # Get the currently logged-in user
         title = request.POST.get('title')
         review_body = request.POST.get('reviewBody')
+        
+        scores = sentiment.polarity_scores(review_body)
+        #print(scores)
+
+        # Find the label with the highest score
+        highest_score_label = max(scores, key=scores.get)
+        #print(highest_score_label)
 
         if title and review_body:  # Basic validation
-            Review.objects.create(user=user, title=title, reviewBody=review_body)
+            Review.objects.create(user=user, title=title, reviewBody=review_body, sentiment =  highest_score_label)
             print("Review created successfully.")
             return redirect('BlogPage')  # Redirect to the blog page
         else:
@@ -376,9 +386,21 @@ def analyze1(request):
         userInput = [N, P, K, temp, humidity, ph, rainfall]
         RF = joblib.load('trained_RF_model.pkl')
         
-    
     # use trained model to predict the data based on user input
         result = RF.predict([userInput])[0]
+        
+    # Retrieve the pesticide whose name contains 'result'
+        plant = Plant.objects.annotate(lower_name=Lower('name')).get(lower_name__icontains=result)
+    
+        
+        plant_details = {
+            'image': plant.image.url if plant.image else None,
+            'price': plant.price,
+            'description': plant.description,
+            'name': plant.name
+        }
+        
+        #print(plant_details)
         
         if isinstance(result, np.ndarray):
                 result = result.tolist()
@@ -386,7 +408,7 @@ def analyze1(request):
                 result = result.item()
         
     # Return a JSON response
-    return JsonResponse({'result': result})
+    return JsonResponse({'plant_details': plant_details})
 
 
 

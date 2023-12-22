@@ -30,6 +30,7 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     reviewBody = models.TextField()
+    sentiment = models.CharField(max_length=200)
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

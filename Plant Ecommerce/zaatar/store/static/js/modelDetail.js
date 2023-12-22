@@ -16,7 +16,7 @@ function updateProductDetails() {
 
     imgElement.src = productDetails.image;
     titleElement.textContent = productDetails.name;
-    priceElement.textContent = productDetails.price;
+    priceElement.textContent = '$' + productDetails.price;
     detailsElement.textContent = productDetails.description;
 
     localStorage.removeItem('modelProduct');
