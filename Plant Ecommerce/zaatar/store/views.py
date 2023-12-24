@@ -140,6 +140,8 @@ def add_review(request):
         #print(scores)
 
         # Find the label with the highest score
+        # Exclude 'compound' score and find the label with the highest score
+        scores.pop('compound')  # This removes the 'compound' score from the dictionary
         highest_score_label = max(scores, key=scores.get)
         #print(highest_score_label)
 
@@ -483,4 +485,4 @@ def analyze2(request):
 
 
 
-#/Users/hadi/Desktop/Plant-Ecommerce/Plant\ Ecommerce/zaatar/stripe [command]
+#/Users/hadi/Desktop/Plant-Ecommerce/Plant\ Ecommerce/zaatar/stripe listen --forward-to http://127.0.0.1:8000/webhook/stripe 
